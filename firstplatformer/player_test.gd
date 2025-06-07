@@ -6,7 +6,7 @@ const friction = 300
 var dir = Vector2(0,1)
 var acc = 600
 const GRAVITY = 10000
-const jumpspeed = 1000
+const jumpspeed = 1000000
 
 
 func _physics_process(delta):
