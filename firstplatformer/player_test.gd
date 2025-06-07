@@ -4,7 +4,7 @@ const speed = 300
 var vel = Vector2.ZERO
 const friction = 300
 var dir = Vector2(0,1)
-var acc = 600
+var acc = 6000
 const GRAVITY = 20000
 const jumpspeed = 1000
 
