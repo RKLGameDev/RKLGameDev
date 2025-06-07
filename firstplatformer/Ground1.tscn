@@ -4,7 +4,6 @@
 
 [node name="Ground1" type="RigidBody2D"]
 position = Vector2(0, 1)
-disable_mode = 2
 collision_layer = 255
 collision_mask = 255
 gravity_scale = 0.0
@@ -16,7 +15,10 @@ position = Vector2(8, 8)
 scale = Vector2(10, 10)
 texture = ExtResource("1_dfy80")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="Block Collision" type="CollisionPolygon2D" parent="."]
 position = Vector2(149, 35)
 scale = Vector2(10, 10)
 polygon = PackedVector2Array(-22.1694, -8.63587, -20.1694, -10.6359, -7.16936, -10.6359, -6.16936, -9.63587, -6.16936, 3.36413, -8.16936, 5.36413, -21.1694, 5.36413, -22.1694, 4.36413)
+
+[node name="Surface Collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-54, -70, 78, -71, 87, -63, -62, -63)
