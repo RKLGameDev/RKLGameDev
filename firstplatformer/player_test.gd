@@ -29,6 +29,6 @@ func _physics_process(delta):
 	velocity = vel	
 	velocity.y += GRAVITY * delta
 	if jump>0:
-		velocity.y = jumpspeed
+		velocity.y += jumpspeed
 # warning-ignore:return_value_discarded
 	move_and_slide()
