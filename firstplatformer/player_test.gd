@@ -28,7 +28,7 @@ func _physics_process(delta):
 		#animationstate.travel("Idle")
 	velocity = vel	
 	velocity.y += GRAVITY * delta
-	if Input.is_action_just_pressed("jump"):
+	if jump== 1:
 		velocity.y = jumpspeed
 # warning-ignore:return_value_discarded
 	move_and_slide()
