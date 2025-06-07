@@ -5,6 +5,7 @@ var vel = Vector2.ZERO
 const friction = 300
 var dir = Vector2(0,1)
 var acc = 600
+const GRAVITY = 1000
 
 func _physics_process(delta):
 	var input_vec = Vector2.ZERO
