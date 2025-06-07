@@ -6,7 +6,7 @@ const friction = 300
 var dir = Vector2(0,1)
 var acc = 600
 const GRAVITY = 10000
-const jumpspeed = 1000000
+const jumpspeed = 1000
 
 
 func _physics_process(delta):
@@ -29,6 +29,6 @@ func _physics_process(delta):
 	velocity = vel	
 	velocity.y += GRAVITY * delta
 	if jump>0:
-		velocity.y += jumpspeed
+		velocity.y = -jumpspeed
 # warning-ignore:return_value_discarded
 	move_and_slide()
