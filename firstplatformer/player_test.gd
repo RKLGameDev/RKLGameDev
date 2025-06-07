@@ -7,6 +7,7 @@ var dir = Vector2(0,1)
 var acc = 600
 const GRAVITY = 1000
 
+
 func _physics_process(delta):
 	var input_vec = Vector2.ZERO
 		
@@ -24,5 +25,6 @@ func _physics_process(delta):
 		vel = vel.move_toward(Vector2.ZERO, friction*delta)
 		#animationstate.travel("Idle")
 	velocity = vel	
+	velocity.y += GRAVITY * delta
 # warning-ignore:return_value_discarded
 	move_and_slide()
