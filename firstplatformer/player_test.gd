@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const speed = 600
 var vel = Vector2.ZERO
-const friction = 300
+const friction = 3000
 var dir = Vector2(0,1)
 var acc = 6000
 const GRAVITY = 20000
