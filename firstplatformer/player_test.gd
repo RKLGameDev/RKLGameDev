@@ -16,7 +16,7 @@ func _physics_process(delta):
 	input_vec.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	jump = Input.get_action_strength("ui_select")
 	input_vec = input_vec.normalized()
-	print(input_vec)
+	print(jump)
 	if input_vec != Vector2.ZERO:# and health > 0:
 		vel = vel.move_toward(speed*input_vec, delta*acc)
 		dir = input_vec*(1/max(abs(input_vec.x),abs(input_vec.y)))
@@ -28,7 +28,7 @@ func _physics_process(delta):
 		#animationstate.travel("Idle")
 	velocity = vel	
 	velocity.y += GRAVITY * delta
-	if jump== 1:
+	if jump>0:
 		velocity.y = jumpspeed
 # warning-ignore:return_value_discarded
 	move_and_slide()
