@@ -12,7 +12,10 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_aqk2v")
 
 [node name="Player" parent="." instance=ExtResource("3_tlwt5")]
-position = Vector2(-196, -46)
+position = Vector2(-180, -16)
+disable_mode = 2
+floor_stop_on_slope = false
+floor_block_on_wall = false
 
 [node name="Ground1" parent="." instance=ExtResource("5_036b0")]
 position = Vector2(74, 564)
@@ -28,3 +31,48 @@ position = Vector2(546, 561)
 
 [node name="Ground5" parent="." instance=ExtResource("5_036b0")]
 position = Vector2(704, 556)
+
+[node name="Ground6" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(851, 570)
+
+[node name="Ground7" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(1007, 569)
+
+[node name="Ground8" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(1166, 560)
+
+[node name="Ground9" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(1323, 567)
+
+[node name="Ground10" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(1481, 562)
+
+[node name="Ground11" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(1631, 568)
+
+[node name="Ground12" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(1787, 567)
+
+[node name="Ground13" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(1946, 558)
+
+[node name="Ground14" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(2103, 565)
+
+[node name="Ground15" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(2261, 560)
+
+[node name="Ground16" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(2408, 574)
+
+[node name="Ground17" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(2564, 573)
+
+[node name="Ground18" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(2723, 564)
+
+[node name="Ground19" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(2880, 571)
+
+[node name="Ground20" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(3038, 566)

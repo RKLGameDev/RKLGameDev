@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-const speed = 140
+const speed = 1000
 var vel = Vector2.ZERO
-const friction = 20
+const friction = 200
 var dir = Vector2(0,1)
-var acc = 200
+var acc = 20000
+var grav = 20000
 
 func _physics_process(delta):
 	var input_vec = Vector2.ZERO
@@ -12,7 +13,7 @@ func _physics_process(delta):
 	input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vec.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vec = input_vec.normalized()
-	print(input_vec)
+	
 	if input_vec != Vector2.ZERO:# and health > 0:
 		vel = vel.move_toward(speed*input_vec, delta*acc)
 		dir = input_vec*(1/max(abs(input_vec.x),abs(input_vec.y)))
@@ -23,5 +24,6 @@ func _physics_process(delta):
 		vel = vel.move_toward(Vector2.ZERO, friction*delta)
 		#animationstate.travel("Idle")
 	velocity = vel	
+	velocity += Vector2(0, grav * delta)
 # warning-ignore:return_value_discarded
 	move_and_slide()
