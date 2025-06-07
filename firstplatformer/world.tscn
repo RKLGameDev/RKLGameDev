@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bafyyk8x47ly6"]
+[gd_scene load_steps=4 format=3 uid="uid://bafyyk8x47ly6"]
 
 [ext_resource type="Script" uid="uid://bxuvnd2eo6uo0" path="res://CharMovement.gd" id="1_fj7yv"]
 [ext_resource type="Texture2D" uid="uid://yp4nesyuole3" path="res://icon.svg" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://cvo2xi4lyubqb" path="res://Player.tscn" id="3_tlwt5"]
 
 [node name="World" type="Node2D"]
 
@@ -15,3 +16,10 @@ polygon = PackedVector2Array(533, 131, 489, 177, 511, 229, 581, 224, 590, 154)
 
 [node name="PlayerSprite" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("2_tlwt5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(200, 50)
+texture = ExtResource("2_tlwt5")
+
+[node name="Player" parent="." instance=ExtResource("3_tlwt5")]
+position = Vector2(-196, -46)
