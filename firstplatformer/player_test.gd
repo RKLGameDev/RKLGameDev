@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 const speed = 300
 var vel = Vector2.ZERO
-const friction = 10
+const friction = 300
 var dir = Vector2(0,1)
-var acc = 300
+var acc = 600
 
 func _physics_process(delta):
 	var input_vec = Vector2.ZERO
