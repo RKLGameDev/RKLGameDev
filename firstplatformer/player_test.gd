@@ -11,9 +11,10 @@ const jumpspeed = 1000
 
 func _physics_process(delta):
 	var input_vec = Vector2.ZERO
-		
+	var jump=0
 	input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vec.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	jump = Input.get_action_strength("ui_select")
 	input_vec = input_vec.normalized()
 	print(input_vec)
 	if input_vec != Vector2.ZERO:# and health > 0:
