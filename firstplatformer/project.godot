@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="FirstPlatformer"
-run/main_scene="uid://i6c0o6jlu5nq"
+run/main_scene="uid://ew1c6v1ds4ky"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
