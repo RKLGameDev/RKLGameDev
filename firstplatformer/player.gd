@@ -5,11 +5,8 @@ var vel = Vector2.ZERO
 const friction = 3000
 var dir = Vector2(0,1)
 var acc = 6000
-const GRAVITY = 30000
-const jumpspeed = 1000
-
-const GRAVITY = 30000
-const jumpspeed = 1000
+const GRAVITY = 3000
+const jumpspeed = 20000
 
 
 func _physics_process(delta):
@@ -22,7 +19,7 @@ func _physics_process(delta):
 	input_vec = input_vec.normalized()
 	
 	
-	jump = Input.get_action_strength("ui_select")
+	jump = Input.is_action_just_released("ui_select")
 	
 	
 	print(input_vec);print(jump)
@@ -39,7 +36,7 @@ func _physics_process(delta):
 	
 	velocity.y += GRAVITY * delta
 	
-	if jump>0:
+	if jump:
 		velocity.y = -jumpspeed
 # warning-ignore:return_value_discarded
 	move_and_slide()
