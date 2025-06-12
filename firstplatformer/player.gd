@@ -14,13 +14,15 @@ func _physics_process(delta):
 	var jump=0
 	
 	input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input_vec.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	#input_vec.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
 	input_vec = input_vec.normalized()
 	
 	
 	jump = Input.is_action_just_released("ui_select")
 	
+	if jump:
+		velocity.y = -jumpspeed
 	
 	print(input_vec);print(jump)
 	if input_vec != Vector2.ZERO:# and health > 0:
@@ -35,8 +37,7 @@ func _physics_process(delta):
 	velocity = vel	
 	
 	velocity.y += GRAVITY * delta
+
+	var motion = velocity * delta
 	
-	if jump:
-		velocity.y = -jumpspeed
-# warning-ignore:return_value_discarded
-	move_and_slide()
+	move_and_collide(motion)
