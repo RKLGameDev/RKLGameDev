@@ -11,15 +11,15 @@ freeze = true
 
 [node name="DirtBlock" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
-scale = Vector2(10, 10)
+scale = Vector2(4, 4)
 texture = ExtResource("1_dfy80")
 
 [node name="Block Collision" type="CollisionPolygon2D" parent="."]
 position = Vector2(149, 35)
 scale = Vector2(10, 10)
-polygon = PackedVector2Array(-22.1694, -8.63587, -20.1694, -10.6359, -7.16936, -10.6359, -6.16936, -9.63587, -6.16936, 3.36413, -8.16936, 5.36413, -21.1694, 5.36413, -22.1694, 4.36413)
+polygon = PackedVector2Array(-17.3, -5.2, -16.5, -6, -10.9, -6, -10.9, -0.4, -11.7, 0.4, -17.3, 0.4)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [node name="Surface Collision" type="CollisionPolygon2D" parent="RigidBody2D"]
-polygon = PackedVector2Array(-54, -70, 78, -71, 87, -63, -62, -63)
+polygon = PackedVector2Array(-16, -25, 40, -25, 40, -17, -24, -17)

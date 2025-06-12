@@ -148,6 +148,9 @@ metadata/_edit_lock_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_h84ma")
-animation = &"RunRight"
-frame_progress = 0.790026
+animation = &"WalkRight"
+autoplay = "WalkRight"
+frame_progress = 0.208624
 metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
