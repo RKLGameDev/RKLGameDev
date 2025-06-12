@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://t3546i703rfj" path="res://Assets/Background/forest_back.png" id="1_6ivlp"]
 [ext_resource type="PackedScene" uid="uid://i6c0o6jlu5nq" path="res://player_test.tscn" id="2_6ivlp"]
-[ext_resource type="PackedScene" path="res://Ground1.tscn" id="3_61swc"]
+[ext_resource type="PackedScene" uid="uid://cqcbfr3hsl55y" path="res://Ground1.tscn" id="3_61swc"]
 
 [node name="World" type="Node2D"]
 
