@@ -1,43 +1,43 @@
 extends CharacterBody2D
 
-const speed = 600
-var vel = Vector2.ZERO
-const friction = 3000
-var dir = Vector2(0,1)
-var acc = 6000
-const GRAVITY = 3000
-const jumpspeed = 20000
+const SPEED = 600.0
+const FRICTION = 3000.0
+const ACCELERATION = 6000.0
+const GRAVITY = 3000.0
+const JUMP_VELOCITY = -1000.0  # Negative because Y-axis goes down in Godot
 
+var dir = Vector2(0, 1)
 
 func _physics_process(delta):
 	var input_vec = Vector2.ZERO
-	var jump=0
 	
+	# Get horizontal input
 	input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	#input_vec.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	
 	input_vec = input_vec.normalized()
 	
+	# Handle jumping - only if on ground
+	if Input.is_action_just_pressed("ui_select") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 	
-	jump = Input.is_action_just_released("ui_select")
+	# Apply gravity
+	if not is_on_floor():
+		velocity.y += GRAVITY * delta
 	
-	if jump:
-		velocity.y = -jumpspeed
-	
-	print(input_vec);print(jump)
-	if input_vec != Vector2.ZERO:# and health > 0:
-		vel = vel.move_toward(speed*input_vec, delta*acc)
-		dir = input_vec*(1/max(abs(input_vec.x),abs(input_vec.y)))
-		#animationtree.set("parameters/Idle/blend_position",dir)
-		#animationtree.set("parameters/Run/blend_position",dir)
+	# Handle horizontal movement
+	if input_vec != Vector2.ZERO:
+		velocity.x = move_toward(velocity.x, SPEED * input_vec.x, ACCELERATION * delta)
+		dir = input_vec
+		# Animation code here
+		#animationtree.set("parameters/Idle/blend_position", dir)
+		#animationtree.set("parameters/Run/blend_position", dir)
 		#animationstate.travel("Run")
 	else:
-		vel = vel.move_toward(Vector2.ZERO, friction*delta)
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+		# Animation code here
 		#animationstate.travel("Idle")
-	velocity = vel	
 	
-	velocity.y += GRAVITY * delta
-
-	var motion = velocity * delta
+	# Move the character - this handles collisions properly
+	move_and_slide()
 	
-	move_and_collide(motion)
+	# Debug output
+	print("Input: ", input_vec, " On Floor: ", is_on_floor(), " Velocity: ", velocity)
