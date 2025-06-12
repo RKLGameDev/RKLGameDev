@@ -7,12 +7,13 @@
 [node name="World" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3040, -778)
+position = Vector2(2983, -808)
 scale = Vector2(2, 2)
 texture = ExtResource("3_aqk2v")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_tlwt5")]
-position = Vector2(-196, -46)
+position = Vector2(241, 379)
 
 [node name="Ground1" parent="." instance=ExtResource("5_036b0")]
 position = Vector2(74, 564)
