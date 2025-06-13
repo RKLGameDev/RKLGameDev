@@ -41,3 +41,4 @@ func _physics_process(delta):
 	
 	# Debug output
 	print("Input: ", input_vec, " On Floor: ", is_on_floor(), " Velocity: ", velocity)
+		
