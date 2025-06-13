@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://f5dpellqaxys"]
+[gd_scene load_steps=5 format=3 uid="uid://f5dpellqaxys"]
 
 [ext_resource type="Texture2D" uid="uid://t3546i703rfj" path="res://Assets/Background/forest_back.png" id="1_0rmld"]
 [ext_resource type="PackedScene" uid="uid://cvo2xi4lyubqb" path="res://Player.tscn" id="2_fyno4"]
+[ext_resource type="Script" uid="uid://dwqoypw11quw3" path="res://player_test.gd" id="3_fyno4"]
 [ext_resource type="PackedScene" uid="uid://cqcbfr3hsl55y" path="res://Ground1.tscn" id="3_r7w4x"]
 
 [node name="World2" type="Node2D"]
@@ -14,6 +15,12 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_fyno4")]
 position = Vector2(241, 379)
+script = ExtResource("3_fyno4")
+SPEED = 300.0
+JUMP_VELOCITY = -400.0
+GRAVITY = 980.0
+COYOTE_TIME = 0.1
+JUMP_BUFFER_TIME = 0.1
 
 [node name="StaticGround" type="Node" parent="Player"]
 
