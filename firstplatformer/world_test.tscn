@@ -7,23 +7,30 @@
 [node name="World" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3040, -778)
+position = Vector2(3203, -704)
 scale = Vector2(2, 2)
 texture = ExtResource("1_6ivlp")
 
-[node name="PlayerTest" parent="." instance=ExtResource("2_6ivlp")]
-
-[node name="Ground1" parent="." instance=ExtResource("3_61swc")]
+[node name="Ground1" parent="Sprite2D" instance=ExtResource("3_61swc")]
 position = Vector2(74, 564)
 
+[node name="Ground2" parent="Sprite2D" instance=ExtResource("3_61swc")]
+position = Vector2(74, 564)
+
+[node name="PlayerTest" parent="." instance=ExtResource("2_6ivlp")]
+position = Vector2(90, -303)
+
+[node name="Ground1" parent="." instance=ExtResource("3_61swc")]
+position = Vector2(-40, 570)
+
 [node name="Ground2" parent="." instance=ExtResource("3_61swc")]
-position = Vector2(230, 563)
+position = Vector2(27, 571)
 
 [node name="Ground3" parent="." instance=ExtResource("3_61swc")]
-position = Vector2(389, 554)
+position = Vector2(91, 565)
 
 [node name="Ground4" parent="." instance=ExtResource("3_61swc")]
-position = Vector2(546, 561)
+position = Vector2(153, 566)
 
 [node name="Ground5" parent="." instance=ExtResource("3_61swc")]
-position = Vector2(704, 556)
+position = Vector2(216, 564)
