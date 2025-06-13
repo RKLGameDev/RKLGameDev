@@ -9,10 +9,8 @@ var acc = 6000
 const GRAVITY = 3000
 const jumpspeed = 1500
 
-
-var dir = Vector2(0, 1)
-
 func _physics_process(delta):
+	var jump = 0;
 	var input_vec = Vector2.ZERO
 	
 	velocity.y += delta * GRAVITY
@@ -23,7 +21,7 @@ func _physics_process(delta):
 		velocity.x =  speed
 	else:
 		velocity.x = 0
-
+	jump = Input.is_action_just_pressed("ui_select");
 	
 	# Apply gravity
 	if not is_on_floor():
@@ -34,7 +32,7 @@ func _physics_process(delta):
 		
 	# "move_and_slide" already takes delta time into account.
 	move_and_slide()
-																			  
+
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index).get_collider()
 		if not jump and collision.name.begins_with("Ground"):
