@@ -13,7 +13,7 @@ texture = ExtResource("3_aqk2v")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_tlwt5")]
-position = Vector2(241, 379)
+position = Vector2(378, 93)
 
 [node name="StaticGround" type="Node" parent="Player"]
 

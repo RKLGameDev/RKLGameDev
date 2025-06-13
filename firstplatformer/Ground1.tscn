@@ -17,9 +17,12 @@ texture = ExtResource("1_dfy80")
 [node name="Block Collision" type="CollisionPolygon2D" parent="."]
 position = Vector2(149, 35)
 scale = Vector2(10, 10)
-polygon = PackedVector2Array(-17.3, -5.2, -16.5, -6, -10.9, -6, -10.9, -0.4, -11.7, 0.4, -17.3, 0.4)
+polygon = PackedVector2Array(-17.3, -5.2, -17.3, -6, -10.9, -6, -10.9, -0.4, -11.7, 0.4, -17.3, 0.4)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Surface" type="RigidBody2D" parent="."]
+position = Vector2(35, 0)
+collision_mask = 0
 
-[node name="Surface Collision" type="CollisionPolygon2D" parent="RigidBody2D"]
-polygon = PackedVector2Array(-16, -25, 40, -25, 40, -17, -24, -17)
+[node name="Surface Collision" type="CollisionPolygon2D" parent="Surface"]
+position = Vector2(-36, -4)
+polygon = PackedVector2Array(-25, -28, 41, -28, 41, -17, -25, -17)

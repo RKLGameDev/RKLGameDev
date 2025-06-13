@@ -6,38 +6,36 @@ const friction = 3000
 var dir = Vector2(0,1)
 var acc = 6000
 const GRAVITY = 3000
-const jumpspeed = 20000
+const jumpspeed = 1500
 
 
 func _physics_process(delta):
 	var input_vec = Vector2.ZERO
 	var jump=0
 	
-	input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	#input_vec.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	
-	input_vec = input_vec.normalized()
-	
+	velocity.y += delta * GRAVITY
+
+	if Input.is_action_pressed("ui_left"):
+		velocity.x = -speed
+	elif Input.is_action_pressed("ui_right"):
+		velocity.x =  speed
+	else:
+		velocity.x = 0
+
 	
 	jump = Input.is_action_just_released("ui_select")
 	
 	if jump:
 		velocity.y = -jumpspeed
+		
+	# "move_and_slide" already takes delta time into account.
+	move_and_slide()
+																			  
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index).get_collider()
+		if not jump and collision.name.begins_with("Ground"):
+			print("I'm Grounded")
+			velocity.y = 0
+	if get_slide_collision_count() == 0:
+		print("I'm Freeee")
 	
-	print(input_vec);print(jump)
-	if input_vec != Vector2.ZERO:# and health > 0:
-		vel = vel.move_toward(speed*input_vec, delta*acc)
-		dir = input_vec*(1/max(abs(input_vec.x),abs(input_vec.y)))
-		#animationtree.set("parameters/Idle/blend_position",dir)
-		#animationtree.set("parameters/Run/blend_position",dir)
-		#animationstate.travel("Run")
-	else:
-		vel = vel.move_toward(Vector2.ZERO, friction*delta)
-		#animationstate.travel("Idle")
-	velocity = vel	
-	
-	velocity.y += GRAVITY * delta
-
-	var motion = velocity * delta
-	
-	move_and_collide(motion)
