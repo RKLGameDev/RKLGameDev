@@ -1,0 +1,295 @@
+[gd_scene load_steps=5 format=3 uid="uid://f5dpellqaxys"]
+
+[ext_resource type="Texture2D" uid="uid://t3546i703rfj" path="res://Assets/Background/forest_back.png" id="1_0rmld"]
+[ext_resource type="PackedScene" uid="uid://cvo2xi4lyubqb" path="res://Player.tscn" id="2_fyno4"]
+[ext_resource type="Script" uid="uid://dwqoypw11quw3" path="res://player_test.gd" id="3_fyno4"]
+[ext_resource type="PackedScene" uid="uid://cqcbfr3hsl55y" path="res://Ground1.tscn" id="3_r7w4x"]
+
+[node name="World2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2983, -808)
+scale = Vector2(2, 2)
+texture = ExtResource("1_0rmld")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_fyno4")]
+position = Vector2(241, 379)
+script = ExtResource("3_fyno4")
+SPEED = 300.0
+JUMP_VELOCITY = -400.0
+GRAVITY = 980.0
+COYOTE_TIME = 0.1
+JUMP_BUFFER_TIME = 0.1
+
+[node name="StaticGround" type="Node" parent="Player"]
+
+[node name="Ground1" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(23, 560)
+
+[node name="Ground2" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(87, 560)
+
+[node name="Ground3" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(215, 560)
+
+[node name="Ground4" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(151, 560)
+
+[node name="Ground5" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(279, 560)
+
+[node name="Ground7" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(343, 560)
+
+[node name="Ground8" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(407, 560)
+
+[node name="Ground9" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(535, 560)
+
+[node name="Ground10" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(471, 560)
+
+[node name="Ground11" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(599, 560)
+
+[node name="Ground6" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(663, 560)
+
+[node name="Ground12" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(727, 560)
+
+[node name="Ground13" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(855, 560)
+
+[node name="Ground14" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(791, 560)
+
+[node name="Ground15" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(919, 560)
+
+[node name="Ground16" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(983, 560)
+
+[node name="Ground17" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1047, 560)
+
+[node name="Ground18" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1175, 560)
+
+[node name="Ground19" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1111, 560)
+
+[node name="Ground20" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1239, 560)
+
+[node name="Ground21" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1303, 560)
+
+[node name="Ground22" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1367, 560)
+
+[node name="Ground23" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1495, 560)
+
+[node name="Ground24" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1431, 560)
+
+[node name="Ground25" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1559, 560)
+
+[node name="Ground26" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1623, 560)
+
+[node name="Ground27" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1687, 560)
+
+[node name="Ground28" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1815, 560)
+
+[node name="Ground29" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1751, 560)
+
+[node name="Ground30" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1879, 560)
+
+[node name="Ground31" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1943, 560)
+
+[node name="Ground32" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2007, 560)
+
+[node name="Ground33" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2135, 560)
+
+[node name="Ground34" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2071, 560)
+
+[node name="Ground35" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2199, 560)
+
+[node name="Ground36" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2263, 560)
+
+[node name="Ground37" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2327, 560)
+
+[node name="Ground38" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2455, 560)
+
+[node name="Ground39" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2391, 560)
+
+[node name="Ground40" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2519, 560)
+
+[node name="Ground41" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2583, 560)
+
+[node name="Ground42" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2647, 560)
+
+[node name="Ground43" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2775, 560)
+
+[node name="Ground44" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2711, 560)
+
+[node name="Ground45" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2839, 560)
+
+[node name="Ground46" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2903, 560)
+
+[node name="Ground47" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(2967, 560)
+
+[node name="Ground48" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3095, 560)
+
+[node name="Ground49" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3031, 560)
+
+[node name="Ground50" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3159, 560)
+
+[node name="Ground51" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3223, 560)
+
+[node name="Ground52" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3287, 560)
+
+[node name="Ground53" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3415, 560)
+
+[node name="Ground54" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3351, 560)
+
+[node name="Ground55" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3479, 560)
+
+[node name="Ground56" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3543, 560)
+
+[node name="Ground57" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3607, 560)
+
+[node name="Ground58" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3735, 560)
+
+[node name="Ground59" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3671, 560)
+
+[node name="Ground60" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3799, 560)
+
+[node name="Ground61" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3863, 560)
+
+[node name="Ground62" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3927, 560)
+
+[node name="Ground63" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4055, 560)
+
+[node name="Ground64" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(3991, 560)
+
+[node name="Ground65" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4119, 560)
+
+[node name="Ground66" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4183, 560)
+
+[node name="Ground67" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4247, 560)
+
+[node name="Ground68" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4375, 560)
+
+[node name="Ground69" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4311, 560)
+
+[node name="Ground70" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4439, 560)
+
+[node name="Ground71" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4503, 560)
+
+[node name="Ground72" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4567, 560)
+
+[node name="Ground73" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4695, 560)
+
+[node name="Ground74" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4631, 560)
+
+[node name="Ground75" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4759, 560)
+
+[node name="Ground76" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4823, 560)
+
+[node name="Ground77" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4887, 560)
+
+[node name="Ground78" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(5015, 560)
+
+[node name="Ground79" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(4951, 560)
+
+[node name="Ground80" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(5079, 560)
+
+[node name="Ground81" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1109, 364)
+
+[node name="Ground82" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1173, 364)
+
+[node name="Ground83" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1301, 364)
+
+[node name="Ground84" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1237, 364)
+
+[node name="Ground85" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1365, 364)
+
+[node name="Ground86" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1429, 364)
+
+[node name="Ground87" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1493, 364)
+
+[node name="Ground88" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1621, 364)
+
+[node name="Ground89" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1557, 364)
+
+[node name="Ground90" parent="Player/StaticGround" instance=ExtResource("3_r7w4x")]
+position = Vector2(1685, 364)
