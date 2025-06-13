@@ -1,28 +1,24 @@
 extends CharacterBody2D
 
-const speed = 600
-var vel = Vector2.ZERO
 const friction = 3000
-var dir = Vector2(0,1)
-var acc = 6000
-const GRAVITY = 3000
-const jumpspeed = 1500
-
+const GRAVITY = 980
 const SPEED = 600.0
 const FRICTION = 3000.0
 const ACCELERATION = 6000.0
-const GRAVITY = 3000.0
 const JUMP_VELOCITY = -1000.0  # Negative because Y-axis goes down in Godot
 
+var input_dir = 0
 
-var dir = Vector2(0, 1)
+
 
 func _physics_process(delta):
-	var input_vec = Vector2.ZERO
+	
 	
 	# Get horizontal input
-	input_vec.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input_vec = input_vec.normalized()
+	input_dir = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	
+	if input_dir != 0:
+		input_dir = input_dir/abs(input_dir)
 	
 	# Handle jumping - only if on ground
 	if Input.is_action_just_pressed("ui_select") and is_on_floor():
@@ -35,12 +31,11 @@ func _physics_process(delta):
 	
 	
 	# Handle horizontal movement
-	if input_vec != Vector2.ZERO:
-		velocity.x = move_toward(velocity.x, SPEED * input_vec.x, ACCELERATION * delta)
-		dir = input_vec
+	if input_dir != 0:
+		velocity.x = move_toward(velocity.x, SPEED * input_dir, ACCELERATION * delta)
 		# Animation code here
-		#animationtree.set("parameters/Idle/blend_position", dir)
-		#animationtree.set("parameters/Run/blend_position", dir)
+		#animationtree.set("parameters/Idle/blend_position", input_dir)
+		#animationtree.set("parameters/Run/blend_position", input_dir)
 		#animationstate.travel("Run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
@@ -51,6 +46,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Debug output
-	print("Input: ", input_vec, " On Floor: ", is_on_floor(), " Velocity: ", velocity)
+	print("Input: ", input_dir, " On Floor: ", is_on_floor(), " Velocity: ", velocity)
 		
 		
