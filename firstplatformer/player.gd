@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 const speed = 600
 var vel = Vector2.ZERO
 const friction = 3000
@@ -9,9 +10,10 @@ const GRAVITY = 3000
 const jumpspeed = 1500
 
 
+var dir = Vector2(0, 1)
+
 func _physics_process(delta):
 	var input_vec = Vector2.ZERO
-	var jump=0
 	
 	velocity.y += delta * GRAVITY
 
@@ -23,7 +25,9 @@ func _physics_process(delta):
 		velocity.x = 0
 
 	
-	jump = Input.is_action_just_released("ui_select")
+	# Apply gravity
+	if not is_on_floor():
+		velocity.y += GRAVITY * delta
 	
 	if jump:
 		velocity.y = -jumpspeed
