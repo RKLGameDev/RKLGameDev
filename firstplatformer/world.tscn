@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqcbfr3hsl55y" path="res://Ground1.tscn" id="5_036b0"]
 
 [node name="World2" type="Node2D"]
+position = Vector2(0, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2983, -808)
@@ -83,7 +84,7 @@ position = Vector2(1239, 560)
 position = Vector2(1303, 560)
 
 [node name="Ground22" parent="StaticGround" instance=ExtResource("5_036b0")]
-position = Vector2(1367, 560)
+position = Vector2(1368, 560)
 
 [node name="Ground23" parent="StaticGround" instance=ExtResource("5_036b0")]
 position = Vector2(1495, 560)
