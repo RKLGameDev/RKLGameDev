@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
-const friction = 3000
 const GRAVITY = 980
-const SPEED = 600.0
-const FRICTION = 3000.0
-const ACCELERATION = 6000.0
-const JUMP_VELOCITY = -1000.0  # Negative because Y-axis goes down in Godot
+const SPEED = 1000.0
+const friction = 1000.0
+const ACCELERATION = 3000.0
+const JUMP_VELOCITY = -800.0  # Negative because Y-axis goes down in Godot
 
 var input_dir = 0
 
@@ -38,7 +37,7 @@ func _physics_process(delta):
 		#animationtree.set("parameters/Run/blend_position", input_dir)
 		#animationstate.travel("Run")
 	else:
-		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+		velocity.x = move_toward(velocity.x, 0, friction * delta)
 		# Animation code here
 		#animationstate.travel("Idle")
 	
