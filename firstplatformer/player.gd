@@ -16,7 +16,7 @@ func _physics_process(delta):
 	
 	# Get horizontal input
 	input_dir = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	
+
 	if input_dir != 0:
 		input_dir = input_dir/abs(input_dir)
 	
