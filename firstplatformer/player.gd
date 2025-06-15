@@ -8,6 +8,10 @@ const JUMP_VELOCITY = -800.0  # Negative because Y-axis goes down in Godot
 
 var input_dir = 0
 
+@onready var animationplayer = $AnimationPlayer
+@onready var animationtree = $AnimationTree 
+@onready var animationstate = animationtree.get("parameters/playback")
+
 
 
 func _physics_process(delta):
@@ -29,17 +33,19 @@ func _physics_process(delta):
 		velocity.y += GRAVITY * delta
 	
 	
+	
 	# Handle horizontal movement
 	if input_dir != 0:
 		velocity.x = move_toward(velocity.x, SPEED * input_dir, ACCELERATION * delta)
 		# Animation code here
-		#animationtree.set("parameters/Idle/blend_position", input_dir)
-		#animationtree.set("parameters/Run/blend_position", input_dir)
-		#animationstate.travel("Run")
+		if input_dir > 0:
+			animationstate.travel("RunRight")
+		if input_dir < 0:
+			animationstate.travel("RunLeft")
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 		# Animation code here
-		#animationstate.travel("Idle")
+		animationstate.travel("Idle")
 	
 	# Move the character - this handles collisions properly
 	move_and_slide()
