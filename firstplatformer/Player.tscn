@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://cvo2xi4lyubqb"]
+[gd_scene load_steps=51 format=3 uid="uid://cvo2xi4lyubqb"]
 
 [ext_resource type="Script" uid="uid://doheoxlliff3a" path="res://player.gd" id="1_xhfnw"]
 [ext_resource type="Texture2D" uid="uid://btys1cn1h82sg" path="res://Assets/Character/Movement/idle.png" id="2_5ncpa"]
@@ -25,53 +25,21 @@ region = Rect2(180, 100, 40, 40)
 atlas = ExtResource("2_5ncpa")
 region = Rect2(260, 100, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2n1s8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jgrc"]
 atlas = ExtResource("2_dtqjt")
-region = Rect2(420, 20, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3vjad"]
-atlas = ExtResource("2_dtqjt")
-region = Rect2(340, 20, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yt0h1"]
-atlas = ExtResource("2_dtqjt")
-region = Rect2(260, 20, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vd78s"]
-atlas = ExtResource("2_dtqjt")
-region = Rect2(180, 20, 40, 40)
+region = Rect2(20, 20, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ictha"]
 atlas = ExtResource("2_dtqjt")
 region = Rect2(100, 20, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1jgrc"]
-atlas = ExtResource("2_dtqjt")
-region = Rect2(20, 20, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_itxgx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_47wu6"]
 atlas = ExtResource("4_cxr5p")
-region = Rect2(20, 20, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cgsek"]
-atlas = ExtResource("4_cxr5p")
-region = Rect2(100, 20, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0pi4m"]
-atlas = ExtResource("4_cxr5p")
-region = Rect2(180, 20, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sg6sq"]
-atlas = ExtResource("4_cxr5p")
-region = Rect2(260, 20, 40, 40)
+region = Rect2(420, 20, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h84ma"]
 atlas = ExtResource("4_cxr5p")
 region = Rect2(340, 20, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_47wu6"]
-atlas = ExtResource("4_cxr5p")
-region = Rect2(420, 20, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wy67"]
 atlas = ExtResource("4_5ncpa")
@@ -221,50 +189,32 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2n1s8")
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_1jgrc")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3vjad")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yt0h1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vd78s")
-}, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_ictha")
 }, {
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_1jgrc")
 }],
 "loop": true,
 "name": &"JumpLeft",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_itxgx")
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_47wu6")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cgsek")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0pi4m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sg6sq")
-}, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_h84ma")
 }, {
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_47wu6")
 }],
 "loop": true,
 "name": &"JumpRight",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -383,114 +333,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_e80uo"]
-resource_name = "RunRight"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_cxr5p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_23wgl"]
-resource_name = "RunLeft"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0998152, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_5ncpa"]
-resource_name = "Idle"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tdg3f"]
-_data = {
-&"Idle": SubResource("Animation_5ncpa"),
-&"RESET": SubResource("Animation_cxr5p"),
-&"RunLeft": SubResource("Animation_23wgl"),
-&"RunRight": SubResource("Animation_e80uo")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wi0c6"]
-animation = &"Idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hp6x6"]
-animation = &"RunLeft"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3tkgg"]
-animation = &"RunRight"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l6ohk"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oudfo"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d6rpx"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ncpa"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wi0c6"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hp6x6"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3tkgg"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r3kul"]
-states/Idle/node = SubResource("AnimationNodeAnimation_wi0c6")
-states/Idle/position = Vector2(318, 100)
-states/RunLeft/node = SubResource("AnimationNodeAnimation_hp6x6")
-states/RunLeft/position = Vector2(576, 197)
-states/RunRight/node = SubResource("AnimationNodeAnimation_3tkgg")
-states/RunRight/position = Vector2(576, 31)
-states/Start/position = Vector2(117, 127)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_l6ohk"), "Idle", "RunLeft", SubResource("AnimationNodeStateMachineTransition_oudfo"), "Idle", "RunRight", SubResource("AnimationNodeStateMachineTransition_d6rpx"), "RunRight", "Idle", SubResource("AnimationNodeStateMachineTransition_5ncpa"), "RunLeft", "Idle", SubResource("AnimationNodeStateMachineTransition_wi0c6"), "RunLeft", "RunRight", SubResource("AnimationNodeStateMachineTransition_hp6x6"), "RunRight", "RunLeft", SubResource("AnimationNodeStateMachineTransition_3tkgg")]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e80uo"]
 radius = 29.0
 height = 64.0
@@ -512,19 +354,9 @@ metadata/_edit_lock_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_h84ma")
-animation = &"Idle"
+animation = &"JumpLeft"
 autoplay = "RunRight"
 metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_tdg3f")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_r3kul")
-advance_expression_base_node = NodePath("..")
-anim_player = NodePath("../AnimationPlayer")
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
 z_index = 2
