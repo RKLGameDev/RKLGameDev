@@ -354,7 +354,7 @@ metadata/_edit_lock_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_h84ma")
-animation = &"JumpLeft"
+animation = &"RunRight"
 autoplay = "RunRight"
 metadata/_edit_lock_ = true
 
