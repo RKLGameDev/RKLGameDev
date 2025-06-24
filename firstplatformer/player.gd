@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 const GRAVITY 		= 980
-const SPEED 		= 600.0
-const friction 		= 3000.0
-const ACCELERATION 	= 2000.0
-const JUMP_VELOCITY = -600.0  # Negative because Y-axis goes down in Godot
+const SPEED 		= 500.0
+const friction 		= 2800.0
+const ACCELERATION 	= 1500.0
+const JUMP_VELOCITY = -700.0  # Negative because Y-axis goes down in Godot
 
 var input_dir 		= 0
 var current_dir 	= 0
@@ -40,7 +40,7 @@ func _physics_process(delta):
 			if input_dir < 0:
 				animatedsprite.play("RunLeft")
 		else:
-			velocity.x = move_toward(velocity.x, SPEED * input_dir, ACCELERATION * delta/3)
+			velocity.x = move_toward(velocity.x, SPEED * input_dir, ACCELERATION * delta/5)
 		# Animation code here
 			if input_dir > 0:
 				animatedsprite.play("JumpRight")
