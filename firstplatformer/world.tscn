@@ -236,4 +236,5 @@ texture = ExtResource("4_036b0")
 polygon = PackedVector2Array(-89, -37, -127, 13, -127, 57, -108, 82, -52, 82, -7, 52, 17, 63, 59, 57, 96, 44, 129, 26, 109, -29, 77, -60, 21, -60, -12, -40, -33, -57, -62, -55)
 
 [node name="NextLevel" parent="." instance=ExtResource("5_036b0")]
+z_index = -1
 position = Vector2(1266, -56)
