@@ -80,6 +80,11 @@ PermaJumpOff={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Main"
+2d_physics/layer_9="Transport"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

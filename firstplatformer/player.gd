@@ -6,6 +6,8 @@ const friction 		= 2800.0
 const ACCELERATION 	= 1500.0
 const JUMP_VELOCITY = -700.0  # Negative because Y-axis goes down in Godot
 const air_control_reduction = 4
+const sprint_speed  = 850.0
+const sprint_ACCELERATION 	= 1200.0
 
 var jump = false
 	
@@ -49,7 +51,10 @@ func _physics_process(delta):
 		#Treat Movement Differently when on ground vs in the air
 		if is_on_floor():
 			current_dir = input_dir
-			velocity.x = move_toward(velocity.x, SPEED * input_dir, ACCELERATION * delta)
+			if Input.get_action_strength("sprint"):
+				velocity.x = move_toward(velocity.x, sprint_speed * input_dir, sprint_ACCELERATION * delta)
+			else:
+				velocity.x = move_toward(velocity.x, SPEED * input_dir, ACCELERATION * delta)
 			# Animation code here
 			if input_dir > 0:
 				animatedsprite.play("RunRight")
