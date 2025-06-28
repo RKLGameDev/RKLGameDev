@@ -5,7 +5,10 @@ const SPEED 		= 500.0
 const friction 		= 2800.0
 const ACCELERATION 	= 1500.0
 const JUMP_VELOCITY = -700.0  # Negative because Y-axis goes down in Godot
+const air_control_reduction = 4
 
+var jump = false
+	
 var input_dir 		= 0
 var current_dir 	= 0
 
@@ -14,14 +17,25 @@ var current_dir 	= 0
 
 func _physics_process(delta):
 	
+	if Input.is_action_just_pressed("PermaJumpOn"):
+		jump = true
+	
+	if Input.is_action_just_pressed("PermaJumpOff"):
+		jump = false
+		
+	
+	var jumpnow = (Input.is_action_just_pressed("jump") or jump)
+	
 	# Get horizontal input
 	input_dir = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	
 
+	
 	if input_dir != 0:
 		input_dir = input_dir/abs(input_dir)
 	
 	# Handle jumping - only if on ground
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if jumpnow and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
 	
@@ -42,7 +56,7 @@ func _physics_process(delta):
 			if input_dir < 0:
 				animatedsprite.play("RunLeft")
 		else:
-			velocity.x = move_toward(velocity.x, SPEED * input_dir, ACCELERATION * delta/5)
+			velocity.x = move_toward(velocity.x, SPEED * input_dir, ACCELERATION * delta/air_control_reduction)
 		# Animation code here
 			if input_dir > 0:
 				animatedsprite.play("JumpRight")
