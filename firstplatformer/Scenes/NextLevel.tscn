@@ -1,9 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://wya1mly68gw8"]
 
-[ext_resource type="Texture2D" uid="uid://c4sxa181mb53g" path="res://NextLevelPortal.png" id="1_ihkef"]
-[ext_resource type="Shader" uid="uid://whf3dingqbls" path="res://NextLevel.gdshader" id="1_tv7vy"]
-[ext_resource type="Texture2D" uid="uid://cjs6p3ge3n0ws" path="res://Blue Particle.png" id="3_fhhm1"]
-[ext_resource type="Texture2D" uid="uid://ci47lse7oawsf" path="res://Yellow Particle.png" id="4_xrcsk"]
+[ext_resource type="Texture2D" uid="uid://c4sxa181mb53g" path="res://NextLevel/Assets/NextLevelPortal.png" id="1_ihkef"]
+[ext_resource type="Shader" uid="uid://whf3dingqbls" path="res://NextLevel/NextLevel.gdshader" id="1_tv7vy"]
+[ext_resource type="Texture2D" uid="uid://cjs6p3ge3n0ws" path="res://NextLevel/Assets/Blue Particle.png" id="3_fhhm1"]
+[ext_resource type="Texture2D" uid="uid://ci47lse7oawsf" path="res://NextLevel/Assets/Yellow Particle.png" id="4_xrcsk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kh7un"]
 shader = ExtResource("1_tv7vy")
@@ -143,7 +143,7 @@ frame_progress = 0.125699
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_dxqfq")
 
-[node name="GPUParticles2D3" type="GPUParticles2D" parent="Area2D"]
+[node name="Yellow Particles" type="GPUParticles2D" parent="Area2D"]
 amount = 300
 amount_ratio = 0.3056
 sub_emitter = NodePath(".")
@@ -155,7 +155,7 @@ fract_delta = false
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_4a7bn")
 
-[node name="GPUParticles2D4" type="GPUParticles2D" parent="Area2D"]
+[node name="Blue Particles" type="GPUParticles2D" parent="Area2D"]
 amount = 300
 amount_ratio = 0.3056
 sub_emitter = NodePath(".")

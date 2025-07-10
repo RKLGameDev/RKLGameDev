@@ -13,7 +13,6 @@ config_version=5
 config/name="FirstPlatformer"
 run/main_scene="uid://bafyyk8x47ly6"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [dotnet]
 

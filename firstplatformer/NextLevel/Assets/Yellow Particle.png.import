@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnhuq8faiw5sg"
-path="res://.godot/imported/Screenshot 2025-06-07 164557.png-b59a52e0210be38462f3d1a7ef122cee.ctex"
+uid="uid://ci47lse7oawsf"
+path="res://.godot/imported/Yellow Particle.png-0be2bbb7b38d51c4c81cfffbfca20ddc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Screenshot 2025-06-07 164557.png"
-dest_files=["res://.godot/imported/Screenshot 2025-06-07 164557.png-b59a52e0210be38462f3d1a7ef122cee.ctex"]
+source_file="res://NextLevel/Assets/Yellow Particle.png"
+dest_files=["res://.godot/imported/Yellow Particle.png-0be2bbb7b38d51c4c81cfffbfca20ddc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci47lse7oawsf"
-path="res://.godot/imported/Yellow Particle.png-80ff423db86432c966f418807e343d13.ctex"
+uid="uid://cjs6p3ge3n0ws"
+path="res://.godot/imported/Blue Particle.png-eb663826e2591b17ed0347b618b4f046.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Yellow Particle.png"
-dest_files=["res://.godot/imported/Yellow Particle.png-80ff423db86432c966f418807e343d13.ctex"]
+source_file="res://NextLevel/Assets/Blue Particle.png"
+dest_files=["res://.godot/imported/Blue Particle.png-eb663826e2591b17ed0347b618b4f046.ctex"]
 
 [params]
 

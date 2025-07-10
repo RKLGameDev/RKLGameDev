@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://i6c0o6jlu5nq"]
 
-[ext_resource type="Script" uid="uid://dwqoypw11quw3" path="res://player_test.gd" id="1_xys6k"]
-[ext_resource type="Texture2D" uid="uid://cnhuq8faiw5sg" path="res://Screenshot 2025-06-07 164557.png" id="2_e0b2u"]
+[ext_resource type="Script" uid="uid://dwqoypw11quw3" path="res://TestWorlds/TestScripts/player_test.gd" id="1_xys6k"]
+[ext_resource type="Texture2D" path="res://Screenshot 2025-06-07 164557.png" id="2_e0b2u"]
 
 [node name="PlayerTest" type="CharacterBody2D"]
 script = ExtResource("1_xys6k")
