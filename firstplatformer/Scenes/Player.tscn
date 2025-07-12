@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://cvo2xi4lyubqb"]
+[gd_scene load_steps=64 format=3 uid="uid://cvo2xi4lyubqb"]
 
 [ext_resource type="Script" uid="uid://doheoxlliff3a" path="res://Scripts/player.gd" id="1_xhfnw"]
 [ext_resource type="Texture2D" uid="uid://btys1cn1h82sg" path="res://Assets/Character/Movement/idle.png" id="2_5ncpa"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b0ibn1n6q5f1a" path="res://Assets/Character/Movement/walkleft.png" id="6_wi0c6"]
 [ext_resource type="Texture2D" uid="uid://c2h23b8liq8re" path="res://Assets/Character/Blood Drop.png" id="9_wi0c6"]
 [ext_resource type="PackedScene" uid="uid://dgp1rh7t7n21s" path="res://Scenes/Eye.tscn" id="10_yoq75"]
+[ext_resource type="Texture2D" uid="uid://bqdmyvuvtqnef" path="res://Assets/Character/Movement/AirPuff.png" id="11_ksbbd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_23wgl"]
 atlas = ExtResource("2_5ncpa")
@@ -360,6 +361,59 @@ gravity = Vector3(0, 98, 0)
 scale_min = 0.4
 scale_max = 0.8
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lslt6"]
+atlas = ExtResource("11_ksbbd")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glx4g"]
+atlas = ExtResource("11_ksbbd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miouo"]
+atlas = ExtResource("11_ksbbd")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3h8g"]
+atlas = ExtResource("11_ksbbd")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e7my"]
+atlas = ExtResource("11_ksbbd")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arntx"]
+atlas = ExtResource("11_ksbbd")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulo2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lslt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glx4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miouo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3h8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e7my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arntx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lslt6")
+}],
+"loop": false,
+"name": &"DoubleJump",
+"speed": 10.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 process_mode = 3
 process_priority = 3
@@ -388,28 +442,35 @@ y_sort_enabled = true
 position = Vector2(-2, 2)
 shape = SubResource("CapsuleShape2D_e80uo")
 one_way_collision_margin = 2.0
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -48)
+position_smoothing_speed = 2000.0
 
 [node name="Grabbing Region" type="Area2D" parent="."]
 visible = false
+metadata/_edit_lock_ = true
 
 [node name="Grabbing Collision" type="CollisionShape2D" parent="Grabbing Region"]
 position = Vector2(-3, -14)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5ncpa")
+metadata/_edit_lock_ = true
 
 [node name="Landing Region" type="Area2D" parent="."]
 visible = false
+metadata/_edit_lock_ = true
 
 [node name="Landing colision" type="CollisionShape2D" parent="Landing Region"]
 position = Vector2(-2, 46)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_wi0c6")
+metadata/_edit_lock_ = true
 
 [node name="Bleeding Effect" type="GPUParticles2D" parent="."]
 visible = false
-position = Vector2(4, 15)
+position = Vector2(-2, -51)
 amount = 7
 sub_emitter = NodePath(".")
 texture = ExtResource("9_wi0c6")
@@ -417,7 +478,15 @@ lifetime = 0.49
 speed_scale = 0.54
 randomness = 0.11
 process_material = SubResource("ParticleProcessMaterial_hp6x6")
+metadata/_edit_lock_ = true
 
 [node name="Eye" parent="." instance=ExtResource("10_yoq75")]
 z_index = 7
 position = Vector2(0, -65)
+metadata/_edit_lock_ = true
+
+[node name="DoubleJumpEffect" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 35)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ulo2v")
+animation = &"DoubleJump"

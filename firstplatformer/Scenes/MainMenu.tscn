@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0s8o3lv2rmkk"]
+
+[ext_resource type="Script" uid="uid://bdduojukmpbr1" path="res://Scripts/TitleScreen.gd" id="1_tt5f1"]
+[ext_resource type="PackedScene" uid="uid://cvo2xi4lyubqb" path="res://Scenes/Player.tscn" id="5_koqhg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_853f1"]
+size = Vector2(416, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8saeu"]
+size = Vector2(1408, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghw46"]
+size = Vector2(1408, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df05h"]
+size = Vector2(138, 832)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8um5k"]
+size = Vector2(208, 40)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 14.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tt5f1")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.001
+anchor_right = 0.001
+offset_left = -209.166
+offset_top = 64.0
+offset_right = 206.834
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 64
+text = "Start"
+
+[node name="EndButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -104.0
+offset_top = 208.0
+offset_right = 104.0
+offset_bottom = 249.0
+text = "Quit"
+
+[node name="Player" parent="." instance=ExtResource("5_koqhg")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 120)
+shape = SubResource("RectangleShape2D_853f1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 328)
+shape = SubResource("RectangleShape2D_8saeu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -416)
+shape = SubResource("RectangleShape2D_ghw46")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-648, 0)
+shape = SubResource("RectangleShape2D_df05h")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(648, -64)
+shape = SubResource("RectangleShape2D_df05h")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 228)
+shape = SubResource("RectangleShape2D_8um5k")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="EndButton" to="." method="_on_end_button_pressed"]

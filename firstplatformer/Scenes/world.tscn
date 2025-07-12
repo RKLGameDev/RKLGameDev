@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dnhitk1doxxia" path="res://Assets/Foreground/world_tileset.png" id="4_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://wya1mly68gw8" path="res://Scenes/NextLevel.tscn" id="5_036b0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_036b0"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fo5ed"]
 texture = ExtResource("4_aqk2v")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -186,7 +186,7 @@ texture = ExtResource("4_aqk2v")
 
 [sub_resource type="TileSet" id="TileSet_dwbse"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_036b0")
+sources/0 = SubResource("TileSetAtlasSource_fo5ed")
 
 [node name="World2" type="Node2D"]
 
@@ -225,7 +225,7 @@ texture = ExtResource("3_aqk2v")
 metadata/_edit_lock_ = true
 
 [node name="Cloud1" type="StaticBody2D" parent="StaticGround"]
-position = Vector2(542, 152)
+position = Vector2(-150, 7)
 collision_layer = 4
 collision_mask = 4
 
@@ -233,10 +233,12 @@ collision_mask = 4
 position = Vector2(1.5, 2)
 scale = Vector2(4, 4)
 texture = ExtResource("4_036b0")
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticGround/Cloud1"]
 polygon = PackedVector2Array(-89, -37, -127, 13, -127, 57, -108, 82, -52, 82, -7, 52, 17, 63, 59, 57, 96, 44, 129, 26, 109, -29, 77, -60, 21, -60, -12, -40, -33, -57, -62, -55)
+metadata/_edit_lock_ = true
 
 [node name="NextLevel" parent="." instance=ExtResource("5_036b0")]
 z_index = -1
-position = Vector2(1266, -56)
+position = Vector2(153, 269)
