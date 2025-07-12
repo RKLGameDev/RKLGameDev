@@ -83,7 +83,7 @@ var fall_damageable = 0
 #    A.4.2 ------- Others Variables ------- #
 var health        = 4
 var alive         = true
-var scale_tracker = 0
+var scale_tracker = 0.0
 var scale_factor  = 4.0/3.0
 
 
@@ -230,8 +230,8 @@ func _physics_process(delta):
 		scale_tracker += 1
 		print("Scale: ", scale_tracker)	
 
-	sprint_speed    = (scale_factor ** (scale_tracker/2)) * base_sprint_speed 
-	run_speed		= (scale_factor ** (scale_tracker/2)) * base_run_speed
+	sprint_speed    = (scale_factor ** (scale_tracker/2.0)) * base_sprint_speed 
+	run_speed		= (scale_factor ** (scale_tracker/2.0)) * base_run_speed
 	air_cont_red    = max(2, base_air_cont_red + (0.5 * scale_tracker))
 	print("air_cont_red: ", air_cont_red)
 
@@ -239,6 +239,6 @@ func _physics_process(delta):
 	sprint_acc 	    = (scale_factor ** scale_tracker)     * base_sprint_acc 	 
 	friction 		= (scale_factor ** scale_tracker)     * base_friction 	
 
-	jump_velocity   = (scale_factor ** (scale_tracker/2)) * base_jump_velocity
-	down_jump_red   = (scale_factor ** (scale_tracker/2)) * base_down_jump_red
-	up_jump_incr    = (scale_factor ** (scale_tracker/2)) * base_up_jump_incr 
+	jump_velocity   = (scale_factor ** (scale_tracker/2.0)) * base_jump_velocity
+	down_jump_red   = (scale_factor ** (scale_tracker/2.0)) * base_down_jump_red
+	up_jump_incr    = (scale_factor ** (scale_tracker/2.0)) * base_up_jump_incr 
