@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://bafyyk8x47ly6"]
+[gd_scene load_steps=9 format=4 uid="uid://bafyyk8x47ly6"]
 
+[ext_resource type="Script" uid="uid://xeblr0tkfunq" path="res://Scenes/worldstart.gd" id="1_5ukr8"]
 [ext_resource type="Texture2D" uid="uid://t3546i703rfj" path="res://Assets/Background/forest_back.png" id="3_aqk2v"]
-[ext_resource type="PackedScene" uid="uid://cvo2xi4lyubqb" path="res://Scenes/Player.tscn" id="3_tlwt5"]
 [ext_resource type="Texture2D" uid="uid://bidb3xcpolw85" path="res://Assets/Foreground/Cloud1.png" id="4_036b0"]
 [ext_resource type="Texture2D" uid="uid://dnhitk1doxxia" path="res://Assets/Foreground/world_tileset.png" id="4_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://wya1mly68gw8" path="res://Scenes/NextLevel.tscn" id="5_036b0"]
+[ext_resource type="PackedScene" uid="uid://cvo2xi4lyubqb" path="res://Scenes/Player.tscn" id="6_5ukr8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fo5ed"]
 texture = ExtResource("4_aqk2v")
@@ -189,9 +190,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fo5ed")
 
 [node name="World2" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("3_tlwt5")]
-position = Vector2(378, 93)
+texture_filter = 1
+script = ExtResource("1_5ukr8")
 
 [node name="StaticGround" type="Node" parent="."]
 
@@ -205,6 +205,7 @@ metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="StaticGround"]
 z_index = -10
+texture_filter = 1
 position = Vector2(9831, -883)
 scale = Vector2(2, 2)
 texture = ExtResource("3_aqk2v")
@@ -242,3 +243,6 @@ metadata/_edit_lock_ = true
 [node name="NextLevel" parent="." instance=ExtResource("5_036b0")]
 z_index = -1
 position = Vector2(153, 269)
+
+[node name="Player" parent="." instance=ExtResource("6_5ukr8")]
+position = Vector2(358, 293)

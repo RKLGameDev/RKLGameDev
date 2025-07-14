@@ -35,6 +35,9 @@ var friction 		= base_friction
 var acceleration 	= base_acceleration
 var sprint_speed    = base_sprint_speed
 var sprint_acc 	    = base_sprint_acc 	
+var input_dir 		= 0
+var current_dir 	= 0
+var speed           = 0
 
 #      A.1.1.2 -------- In Air ------- #
 var jump_velocity   = base_jump_velocity
@@ -45,9 +48,6 @@ var up_jump_incr    = base_up_jump_incr
 var jump            = false
 var doublejump_active = true
 var doublejump      = true
-var input_dir 		= 0
-var current_dir 	= 0
-var speed           = 0
 
 
 
@@ -125,6 +125,7 @@ func _physics_process(delta):
 	input_dir = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	if input_dir != 0:
 		input_dir = input_dir/abs(input_dir)
+	
 		
 	if not is_on_floor():
 		#velocity.y += gravity * delta  # Apply gravity
@@ -222,18 +223,15 @@ func _physics_process(delta):
 		scale = (1.0/scale_factor) * scale
 		camera.zoom = scale_factor * camera.zoom
 		scale_tracker -= 1
-		print("Scale: ", scale_tracker)	
 		
 	if Input.is_action_just_pressed("Grow") and scale_tracker < 4:
 		scale = scale_factor * scale
 		camera.zoom = (1.0/scale_factor) * camera.zoom
 		scale_tracker += 1
-		print("Scale: ", scale_tracker)	
 
 	sprint_speed    = (scale_factor ** (scale_tracker/2.0)) * base_sprint_speed 
 	run_speed		= (scale_factor ** (scale_tracker/2.0)) * base_run_speed
 	air_cont_red    = max(2, base_air_cont_red + (0.5 * scale_tracker))
-	print("air_cont_red: ", air_cont_red)
 
 	acceleration 	= (scale_factor ** scale_tracker)     * base_acceleration 
 	sprint_acc 	    = (scale_factor ** scale_tracker)     * base_sprint_acc 	 

@@ -14,11 +14,6 @@ config/name="FirstPlatformer"
 run/main_scene="uid://c0s8o3lv2rmkk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
-[display]
-
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
-
 [dotnet]
 
 project/assembly_name="FirstPlatformer"

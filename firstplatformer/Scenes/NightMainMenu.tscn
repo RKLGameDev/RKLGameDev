@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0s8o3lv2rmkk"]
+[gd_scene load_steps=11 format=3 uid="uid://ckwc2bsp51ajw"]
 
-[ext_resource type="Script" uid="uid://bdduojukmpbr1" path="res://Scripts/TitleScreen.gd" id="1_tt5f1"]
-[ext_resource type="Texture2D" uid="uid://dh5qeemsxf5fk" path="res://Assets/Character/WakingLifeRoomFlat-Sheet.png" id="2_853f1"]
-[ext_resource type="PackedScene" uid="uid://ci8tq41h0yu8i" path="res://Scenes/AwakePlayer.tscn" id="3_8saeu"]
+[ext_resource type="Script" uid="uid://dorogo8g041xp" path="res://Scripts/NightTitleScreen.gd" id="1_tyiyt"]
+[ext_resource type="Texture2D" uid="uid://dh5qeemsxf5fk" path="res://Assets/Character/WakingLifeRoomFlat-Sheet.png" id="2_2xqwm"]
+[ext_resource type="PackedScene" uid="uid://ci8tq41h0yu8i" path="res://Scenes/AwakePlayer.tscn" id="3_0nnrd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_853f1"]
 size = Vector2(416, 112)
@@ -22,11 +22,11 @@ size = Vector2(208, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xim88"]
 size = Vector2(264.5, 110.25)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8saeu"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tyiyt"]
 radius = 17.8564
-height = 73.5692
+height = 71.4257
 
-[node name="MainMenu" type="Control"]
+[node name="NightMainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,30 +35,7 @@ offset_right = 14.0
 offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_tt5f1")
-
-[node name="StartButton" type="Button" parent="."]
-z_index = 2
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.001
-anchor_right = 0.001
-offset_left = 422.834
-offset_top = 200.0
-offset_right = 468.834
-offset_bottom = 231.0
-theme_override_font_sizes/font_size = 16
-text = "Start"
-
-[node name="EndButton" type="Button" parent="."]
-z_index = 6
-layout_mode = 0
-offset_left = 56.0
-offset_top = 72.0
-offset_right = 264.0
-offset_bottom = 113.0
-text = "Quit"
+script = ExtResource("1_tyiyt")
 
 [node name="TheRoom" type="Area2D" parent="."]
 
@@ -66,9 +43,9 @@ text = "Quit"
 texture_filter = 1
 position = Vector2(256, 264)
 scale = Vector2(4, 4)
-texture = ExtResource("2_853f1")
+texture = ExtResource("2_2xqwm")
 vframes = 6
-frame = 1
+frame = 5
 
 [node name="Camera2D" type="Camera2D" parent="TheRoom"]
 position = Vector2(256, 264)
@@ -109,18 +86,41 @@ shape = SubResource("RectangleShape2D_8um5k")
 position = Vector2(-83.75, 175.125)
 shape = SubResource("RectangleShape2D_xim88")
 
-[node name="AwakePlayer" parent="TheRoom" instance=ExtResource("3_8saeu")]
+[node name="AwakePlayer" parent="TheRoom" instance=ExtResource("3_0nnrd")]
 position = Vector2(392, 352)
 
-[node name="BedMM" type="Area2D" parent="TheRoom"]
-position = Vector2(-240, 400)
+[node name="Bed" type="Area2D" parent="TheRoom"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TheRoom/BedMM"]
-position = Vector2(544, 80)
+[node name="Gotobed" type="CollisionShape2D" parent="TheRoom/Bed"]
+position = Vector2(304, 480)
 rotation = 1.0472
-shape = SubResource("CapsuleShape2D_8saeu")
+shape = SubResource("CapsuleShape2D_tyiyt")
 
+[node name="StartButton" type="Button" parent="."]
+z_index = 2
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.096
+anchor_right = 0.001
+anchor_bottom = 0.109
+offset_left = 527.936
+offset_top = 56.0
+offset_right = 460.834
+offset_bottom = 14.951
+theme_override_font_sizes/font_size = 16
+text = "Start"
+
+[node name="EndButton" type="Button" parent="."]
+z_index = 6
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 112.0
+offset_bottom = 87.0
+text = "Quit"
+
+[connection signal="body_entered" from="TheRoom/Bed" to="." method="_on_bed_body_entered"]
+[connection signal="body_exited" from="TheRoom/Bed" to="." method="_on_bed_body_exited"]
 [connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="EndButton" to="." method="_on_end_button_pressed"]
-[connection signal="body_entered" from="TheRoom/BedMM" to="." method="_on_bed_mm_body_entered"]
-[connection signal="body_exited" from="TheRoom/BedMM" to="." method="_on_bed_mm_body_exited"]
