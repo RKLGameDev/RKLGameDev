@@ -33,7 +33,7 @@ func _on_bed_mm_body_exited(body: Node2D) -> void:
 		playerinbed = false
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if playerinbed and Input.is_action_just_pressed("jump"):
 		roomsprite.frame = 2
 		player.visible = false

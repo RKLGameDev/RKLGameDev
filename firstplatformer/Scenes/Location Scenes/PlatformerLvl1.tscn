@@ -251,7 +251,7 @@ metadata/_edit_lock_ = true
 position = Vector2(358, 293)
 
 [node name="PltfmrLvl1goal" parent="." instance=ExtResource("5_wkdtc")]
-position = Vector2(6994, -441)
+position = Vector2(6996, -425)
 
 [node name="Cloud" parent="." instance=ExtResource("6_yblcb")]
 position = Vector2(2399, -745)
@@ -355,11 +355,14 @@ offset_bottom = 205.0
 theme_override_colors/font_color = Color(0.254902, 0.905882, 0.717647, 1)
 theme_override_font_sizes/font_size = 24
 text = "By the time you make it to the portal out of here, 
-it should be morning and you should be well rested! 
+it'll be morning and you'll be well rested! 
 
 Hurt yourself too many times, like falling too far, 
 and you will jolt yourself awake, 
 long before the sun has risen."
 horizontal_alignment = 1
+
+[node name="BrownBird" parent="." instance=ExtResource("7_g26oo")]
+position = Vector2(4193, -1079)
 
 [connection signal="body_entered" from="Spring" to="Player" method="_on_spring_body_entered"]

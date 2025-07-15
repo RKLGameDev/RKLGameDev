@@ -45,8 +45,7 @@ var air_cont_red    = base_air_cont_red
 var down_jump_red   = base_down_jump_red
 var up_jump_incr    = base_up_jump_incr 
 
-var jump            = false
-var doublejump      = true
+var doublejump      = false
 
 
 
@@ -87,6 +86,7 @@ var scale_factor  = 4.0/3.0
 var can_scale     = false
 var can_dblejump  = false
 var damaged       = false
+var upgrade_damage= false
 
 
 
@@ -112,6 +112,28 @@ func took_damage(current_health):
 			eye_animation.play("Eye4")
 		return(current_health - 1)
 
+
+func recover(current_health):
+	if current_health == 4:
+		return(4)
+	else:
+		if current_health == 3:
+			eye_animation.play_backwards("Eye1")
+		if current_health == 2:
+			eye_animation.play_backwards("Eye2")
+		if current_health == 1:
+			eye_animation.play_backwards("Eye3")
+		if current_health == 0:
+			eye_animation.play_backwards("Eye4")
+		return(current_health + 1)
+
+func jumping():
+	if Input.get_action_strength("move_down"):
+		velocity.y = jump_velocity + down_jump_red
+	elif Input.get_action_strength("move_up"):
+		velocity.y = jump_velocity + up_jump_incr
+	else:
+		velocity.y = jump_velocity
 
 
 
@@ -178,38 +200,21 @@ func _physics_process(delta):
 			speed = run_speed
 			
 #      C.1.2.2 ------- Jumping ------- #
-
-	if Input.is_action_just_pressed("PermaJumpOn"):
-		jump = true
-	if Input.is_action_just_pressed("PermaJumpOff"):
-		jump = false
+	var jumpnow = Input.is_action_just_pressed("jump")
+	
+	if jumpnow and is_on_floor(): # Handle jumping - only if on ground)
+		jumping()
 		
-	var jumpnow = (Input.is_action_just_pressed("jump") or jump)
-	
-	if jumpnow and (is_on_floor() or (can_dblejump and doublejump)): # Handle jumping - only if on ground
-		if not is_on_floor():
-			doublejumpanim.play("DoubleJump")
-			
-		doublejump = false
-		if Input.get_action_strength("move_down"):
-			velocity.y = jump_velocity + down_jump_red
-		elif Input.get_action_strength("move_up"):
-			velocity.y = jump_velocity + up_jump_incr
-		else:
-			velocity.y = jump_velocity
-	if is_on_floor() and can_dblejump:
-		doublejump = true
-	
 	
 	
 #  C.2 --------- Health and Damage ---------- #
-
+	
+#    C.2.0 ---- Damage Application ---- #
 	if damaged:
 		health = took_damage(health)
 		damaged = false
 	
 #    C.2.1 -------- Fall Damage ------- #
-
 	if self.velocity.y > fall_damage_vel:
 		fall_damageable = 1
 		
@@ -221,17 +226,41 @@ func _physics_process(delta):
 		last_ok_height  = self.position.y
 		fall_damageable = 0
 	
+#    C.2.3 ------ Upgrade Damage ------ #
+	if upgrade_damage:
+		damaged = true
+		upgrade_damage = false
+		
+	
 	
 	
 #  C.3 ---------- Other Mechanics ----------- #
 	
-#    C.3.1 ------ Shink and Grow ------ #a
+#    C.3.1 -------- Double Jump ------- #
+
+	if can_dblejump:
+		if jumpnow and can_dblejump and doublejump: 
+			if not is_on_floor():
+				doublejumpanim.play("DoubleJump")
+			doublejump = false
+			jumping()
+		
+		if is_on_floor():
+			doublejump = true
+			
+			
+	
+#    C.3.2 ------ Shink and Grow ------ #
 
 	if can_scale:
 		if Input.is_action_just_pressed("Shrink") and scale_tracker > -4:
 			scale = (1.0/scale_factor) * scale
 			camera.zoom = scale_factor * camera.zoom
 			scale_tracker -= 1
+			if scale_tracker < 4:
+				fall_damage_vel *= 1.5
+			else:
+				fall_damage_vel = 999999999
 			
 		if Input.is_action_just_pressed("Grow") and scale_tracker < 4:
 			scale = scale_factor * scale
@@ -250,5 +279,4 @@ func _physics_process(delta):
 		down_jump_red   = (scale_factor ** (scale_tracker/2.0)) * base_down_jump_red
 		up_jump_incr    = (scale_factor ** (scale_tracker/2.0)) * base_up_jump_incr 
 
-	
 	
