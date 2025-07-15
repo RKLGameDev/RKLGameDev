@@ -46,7 +46,6 @@ var down_jump_red   = base_down_jump_red
 var up_jump_incr    = base_up_jump_incr 
 
 var jump            = false
-var doublejump_active = true
 var doublejump      = true
 
 
@@ -85,6 +84,9 @@ var health        = 4
 var alive         = true
 var scale_tracker = 0.0
 var scale_factor  = 4.0/3.0
+var can_scale     = false
+var can_dblejump  = false
+
 
 
 
@@ -182,7 +184,7 @@ func _physics_process(delta):
 		
 	var jumpnow = (Input.is_action_just_pressed("jump") or jump)
 	
-	if jumpnow and (is_on_floor() or (doublejump_active and doublejump)): # Handle jumping - only if on ground
+	if jumpnow and (is_on_floor() or (can_dblejump and doublejump)): # Handle jumping - only if on ground
 		if not is_on_floor():
 			doublejumpanim.play("DoubleJump")
 			
@@ -193,7 +195,7 @@ func _physics_process(delta):
 			velocity.y = jump_velocity + up_jump_incr
 		else:
 			velocity.y = jump_velocity
-	if is_on_floor() and doublejump_active:
+	if is_on_floor() and can_dblejump:
 		doublejump = true
 	
 	
@@ -219,24 +221,31 @@ func _physics_process(delta):
 	
 #    C.3.1 ------ Shink and Grow ------ #a
 
-	if Input.is_action_just_pressed("Shrink") and scale_tracker > -4:
-		scale = (1.0/scale_factor) * scale
-		camera.zoom = scale_factor * camera.zoom
-		scale_tracker -= 1
-		
-	if Input.is_action_just_pressed("Grow") and scale_tracker < 4:
-		scale = scale_factor * scale
-		camera.zoom = (1.0/scale_factor) * camera.zoom
-		scale_tracker += 1
+	if can_scale:
+		if Input.is_action_just_pressed("Shrink") and scale_tracker > -4:
+			scale = (1.0/scale_factor) * scale
+			camera.zoom = scale_factor * camera.zoom
+			scale_tracker -= 1
+			
+		if Input.is_action_just_pressed("Grow") and scale_tracker < 4:
+			scale = scale_factor * scale
+			camera.zoom = (1.0/scale_factor) * camera.zoom
+			scale_tracker += 1
 
-	sprint_speed    = (scale_factor ** (scale_tracker/2.0)) * base_sprint_speed 
-	run_speed		= (scale_factor ** (scale_tracker/2.0)) * base_run_speed
-	air_cont_red    = max(2, base_air_cont_red + (0.5 * scale_tracker))
+		sprint_speed    = (scale_factor ** (scale_tracker/2.0)) * base_sprint_speed 
+		run_speed		= (scale_factor ** (scale_tracker/2.0)) * base_run_speed
+		air_cont_red    = max(2, base_air_cont_red + (0.5 * scale_tracker))
 
-	acceleration 	= (scale_factor ** scale_tracker)     * base_acceleration 
-	sprint_acc 	    = (scale_factor ** scale_tracker)     * base_sprint_acc 	 
-	friction 		= (scale_factor ** scale_tracker)     * base_friction 	
+		acceleration 	= (scale_factor ** scale_tracker)     * base_acceleration 
+		sprint_acc 	    = (scale_factor ** scale_tracker)     * base_sprint_acc 	 
+		friction 		= (scale_factor ** scale_tracker)     * base_friction 	
 
-	jump_velocity   = (scale_factor ** (scale_tracker/2.0)) * base_jump_velocity
-	down_jump_red   = (scale_factor ** (scale_tracker/2.0)) * base_down_jump_red
-	up_jump_incr    = (scale_factor ** (scale_tracker/2.0)) * base_up_jump_incr 
+		jump_velocity   = (scale_factor ** (scale_tracker/2.0)) * base_jump_velocity
+		down_jump_red   = (scale_factor ** (scale_tracker/2.0)) * base_down_jump_red
+		up_jump_incr    = (scale_factor ** (scale_tracker/2.0)) * base_up_jump_incr 
+
+
+func _on_spring_body_entered(body: Node2D) -> void:
+	can_dblejump = true
+	health = took_damage(health)
+	print(health)

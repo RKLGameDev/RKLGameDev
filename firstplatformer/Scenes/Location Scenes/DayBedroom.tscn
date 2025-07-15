@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0s8o3lv2rmkk"]
+
+[ext_resource type="Script" uid="uid://bdduojukmpbr1" path="res://Scripts/Location Scripts/DayBedroom.gd" id="1_wov0c"]
+[ext_resource type="Texture2D" uid="uid://dh5qeemsxf5fk" path="res://Assets/Character/WakingLifeRoomFlat-Sheet.png" id="2_2h253"]
+[ext_resource type="PackedScene" uid="uid://ci8tq41h0yu8i" path="res://Scenes/Player Scenes/AwakePlayer.tscn" id="3_7dcb4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8saeu"]
+size = Vector2(720, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghw46"]
+size = Vector2(712, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_df05h"]
+size = Vector2(138, 616)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xim88"]
+size = Vector2(264.5, 110.25)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8saeu"]
+radius = 17.8564
+height = 73.5692
+
+[node name="DayBedroom" type="Control"]
+layout_mode = 3
+anchor_right = 0.444
+anchor_bottom = 0.778
+offset_top = -8.0
+offset_right = 0.511963
+offset_bottom = -0.144043
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wov0c")
+
+[node name="TheRoom" type="Node2D" parent="."]
+
+[node name="RoomSprite" type="Sprite2D" parent="TheRoom"]
+texture_filter = 1
+position = Vector2(256, 264)
+scale = Vector2(4, 4)
+texture = ExtResource("2_2h253")
+vframes = 6
+frame = 1
+metadata/_edit_lock_ = true
+
+[node name="RoomBounds" type="StaticBody2D" parent="TheRoom"]
+position = Vector2(256, 264)
+
+[node name="FloorBox" type="CollisionShape2D" parent="TheRoom/RoomBounds"]
+z_index = 1
+position = Vector2(0, 264)
+shape = SubResource("RectangleShape2D_8saeu")
+
+[node name="CeilBox" type="CollisionShape2D" parent="TheRoom/RoomBounds"]
+z_index = 1
+position = Vector2(4, -264)
+shape = SubResource("RectangleShape2D_ghw46")
+
+[node name="LeftWallBox" type="CollisionShape2D" parent="TheRoom/RoomBounds"]
+z_index = 1
+position = Vector2(-288, 0)
+shape = SubResource("RectangleShape2D_df05h")
+
+[node name="RightWallBox" type="CollisionShape2D" parent="TheRoom/RoomBounds"]
+z_index = 1
+position = Vector2(288, -4)
+shape = SubResource("RectangleShape2D_df05h")
+
+[node name="BedBox" type="CollisionShape2D" parent="TheRoom/RoomBounds"]
+position = Vector2(-83.75, 175.125)
+shape = SubResource("RectangleShape2D_xim88")
+
+[node name="AwakePlayer" parent="TheRoom" instance=ExtResource("3_7dcb4")]
+position = Vector2(432, 352)
+
+[node name="BedMM" type="Area2D" parent="TheRoom"]
+position = Vector2(312, 472)
+
+[node name="Footofbed" type="CollisionShape2D" parent="TheRoom/BedMM"]
+rotation = 1.0472
+shape = SubResource("CapsuleShape2D_8saeu")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(256, 264)
+zoom = Vector2(1.4, 1.4)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 216.0
+offset_right = 235.0
+offset_bottom = 265.0
+text = "Press [spacebar] at foot 
+of bed to fall asleep."
+
+[connection signal="body_entered" from="TheRoom/BedMM" to="." method="_on_bed_mm_body_entered"]
+[connection signal="body_exited" from="TheRoom/BedMM" to="." method="_on_bed_mm_body_exited"]

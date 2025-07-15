@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp6okw7efg7sp"]
+
+[ext_resource type="Texture2D" uid="uid://bidb3xcpolw85" path="res://Assets/Foreground/Cloud1.png" id="1_8ejo8"]
+
+[node name="Cloud" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+texture = ExtResource("1_8ejo8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-192, 27, -150, -43, -91, -90, 110, -90, 147, -51, 187, -7, 187, 49, 38, 92, -12, 78, -89, 120, -157, 119, -192, 88)

@@ -14,7 +14,7 @@ func _ready():
 	pass
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/world.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Location Scenes/PlatformerLvl1.tscn")
 	pass # Replace with function body.
 
 func _on_end_button_pressed() -> void:
@@ -22,17 +22,21 @@ func _on_end_button_pressed() -> void:
 	pass # Replace with function body.
 
 
-func _on_bed_body_entered(body: Node2D) -> void:
+func _on_bed_mm_body_entered(body: Node2D) -> void:
 	print(body.name == "AwakePlayer")
 	if body.name == "AwakePlayer":
 		playerinbed = true
 
-func _on_bed_body_exited(body: Node2D) -> void:
-	playerinbed = false
+
+func _on_bed_mm_body_exited(body: Node2D) -> void:
+	print(body.name == "AwakePlayer")
+	if body.name == "AwakePlayer":
+		playerinbed = false
+
 
 func _physics_process(delta):
 	if playerinbed and Input.is_action_just_pressed("jump"):
 		roomsprite.frame = 2
 		player.visible = false
 		await get_tree().create_timer(3.0).timeout
-		get_tree().change_scene_to_file("res://Scenes/world.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Location Scenes/PlatformerLvl1.tscn")

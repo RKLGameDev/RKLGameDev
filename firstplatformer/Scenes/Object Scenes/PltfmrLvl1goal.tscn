@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://wya1mly68gw8"]
+[gd_scene load_steps=22 format=3 uid="uid://wya1mly68gw8"]
 
 [ext_resource type="Texture2D" uid="uid://c4sxa181mb53g" path="res://NextLevel/Assets/NextLevelPortal.png" id="1_ihkef"]
+[ext_resource type="Script" uid="uid://clvyexdrtigrv" path="res://Scripts/Object Scripts/PltfmrLvl1goal.gd" id="1_tfmdr"]
 [ext_resource type="Shader" uid="uid://whf3dingqbls" path="res://NextLevel/NextLevel.gdshader" id="1_tv7vy"]
 [ext_resource type="Texture2D" uid="uid://cjs6p3ge3n0ws" path="res://NextLevel/Assets/Blue Particle.png" id="3_fhhm1"]
 [ext_resource type="Texture2D" uid="uid://ci47lse7oawsf" path="res://NextLevel/Assets/Yellow Particle.png" id="4_xrcsk"]
@@ -126,7 +127,8 @@ attractor_interaction_enabled = false
 scale_min = 0.5
 scale_max = 3.0
 
-[node name="NextLevel" type="Node2D"]
+[node name="PltfmrLvl1goal" type="Node2D"]
+script = ExtResource("1_tfmdr")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -165,3 +167,5 @@ speed_scale = 0.5
 interpolate = false
 fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_4a7bn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

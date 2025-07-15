@@ -14,7 +14,7 @@ func _ready():
 	pass
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/world.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Location Scenes/PlatformerLvl1.tscn")
 	pass # Replace with function body.
 
 func _on_end_button_pressed() -> void:
@@ -39,4 +39,4 @@ func _physics_process(delta):
 		roomsprite.frame = 2
 		player.visible = false
 		await get_tree().create_timer(3.0).timeout
-		get_tree().change_scene_to_file("res://Scenes/world.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Location Scenes/PlatformerLvl1.tscn")

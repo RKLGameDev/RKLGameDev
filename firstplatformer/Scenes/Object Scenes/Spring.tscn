@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://rhu8je07ap4p"]
+
+[ext_resource type="Texture2D" uid="uid://djo1dkd3t5k7i" path="res://Assets/Character/Spring.png" id="1_5lbv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gst1t"]
+size = Vector2(23, 30)
+
+[node name="Spring" type="Area2D"]
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5lbv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_gst1t")
