@@ -13,9 +13,6 @@ func _ready():
 #	player_instance.position = Vector2(384.0, 288.0) # Example position
 	pass
 
-func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Location Scenes/PlatformerLvl1.tscn")
-	pass # Replace with function body.
 
 func _on_end_button_pressed() -> void:
 	get_tree().quit()
@@ -23,7 +20,6 @@ func _on_end_button_pressed() -> void:
 
 
 func _on_bed_body_entered(body: Node2D) -> void:
-	print(body.name == "AwakePlayer")
 	if body.name == "AwakePlayer":
 		playerinbed = true
 

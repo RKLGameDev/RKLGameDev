@@ -23,7 +23,6 @@ func _on_end_button_pressed() -> void:
 
 
 func _on_bed_mm_body_entered(body: Node2D) -> void:
-	print(body.name == "AwakePlayer")
 	if body.name == "AwakePlayer":
 		playerinbed = true
 

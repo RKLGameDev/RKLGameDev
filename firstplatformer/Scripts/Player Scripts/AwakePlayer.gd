@@ -11,7 +11,7 @@ extends CharacterBody2D
 #    A.1.1 ------ Movement Constants ------ #
 			
 #      A.1.1.1 ------ On Ground ------ #
-const base_run_speed		= 35.0
+const base_run_speed		= 40.0
 const base_friction 		= 200.0
 const base_acceleration 	= 100.0
 

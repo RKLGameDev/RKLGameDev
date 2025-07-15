@@ -13,9 +13,9 @@ extends CharacterBody2D
 #      A.1.1.1 ------ On Ground ------ #
 const base_run_speed		= 500.0
 const base_friction 		= 2800.0
-const base_acceleration 	= 1700.0
+const base_acceleration 	= 2200.0
 const base_sprint_speed     = 850.0
-const base_sprint_acc 	    = 1500.0
+const base_sprint_acc 	    = 2000.0
 
 #      A.1.1.2 -------- In Air ------- #
 const gravity 		        = 980
@@ -86,6 +86,8 @@ var scale_tracker = 0.0
 var scale_factor  = 4.0/3.0
 var can_scale     = false
 var can_dblejump  = false
+var damaged       = false
+
 
 
 
@@ -201,6 +203,10 @@ func _physics_process(delta):
 	
 	
 #  C.2 --------- Health and Damage ---------- #
+
+	if damaged:
+		health = took_damage(health)
+		damaged = false
 	
 #    C.2.1 -------- Fall Damage ------- #
 
@@ -208,7 +214,7 @@ func _physics_process(delta):
 		fall_damageable = 1
 		
 	if is_on_floor() and fall_damageable == 1:
-		health = took_damage(health)
+		damaged = true
 		fall_damageable = 0
 		
 	if self.velocity.y < fall_damage_vel:
@@ -244,8 +250,5 @@ func _physics_process(delta):
 		down_jump_red   = (scale_factor ** (scale_tracker/2.0)) * base_down_jump_red
 		up_jump_incr    = (scale_factor ** (scale_tracker/2.0)) * base_up_jump_incr 
 
-
-func _on_spring_body_entered(body: Node2D) -> void:
-	can_dblejump = true
-	health = took_damage(health)
-	print(health)
+	
+	

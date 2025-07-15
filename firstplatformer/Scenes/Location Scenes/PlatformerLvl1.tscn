@@ -261,9 +261,6 @@ position = Vector2(1592, -978)
 rotation = 3.14159
 scale = Vector2(2, -2)
 
-[node name="BrownBird" parent="." instance=ExtResource("7_g26oo")]
-position = Vector2(2185, -1348)
-
 [node name="Cloud3" parent="." instance=ExtResource("6_yblcb")]
 position = Vector2(767, -999)
 
