@@ -14,6 +14,10 @@ config/name="FirstPlatformer"
 run/main_scene="uid://c0s8o3lv2rmkk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
+[autoload]
+
+GlobalLevelTracker="*res://Scripts/Global Scripts/GlobalLevelTracker.gd"
+
 [display]
 
 window/size/viewport_width=700
