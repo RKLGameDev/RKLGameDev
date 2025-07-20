@@ -3,7 +3,7 @@ extends Control
 #@onready var player_scene = preload("res://Scenes/AwakePlayer.tscn") 
 
 @onready var roomsprite = $TheRoom/RoomSprite
-@onready var player = $TheRoom/AwakePlayer
+@onready var player = $TheRoom/CommonBedroomAssets/AwakePlayer
 var playerinbed = false
 
 func _ready():
@@ -28,7 +28,7 @@ func _on_bed_body_exited(body: Node2D) -> void:
 
 func _physics_process(delta):
 	if playerinbed and Input.is_action_just_pressed("jump"):
-		roomsprite.frame = 2
+		roomsprite.frame = 0
 		player.visible = false
 		await get_tree().create_timer(3.0).timeout
 		GlobalLevelTracker.level_start()

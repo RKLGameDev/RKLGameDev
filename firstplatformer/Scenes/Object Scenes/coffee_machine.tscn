@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr46ogswy4pc4"]
+
+[ext_resource type="Texture2D" uid="uid://b6xhfgyqmuvx2" path="res://Assets/Foreground/CoffeeMachine-Sheetpng.png" id="1_7jo7w"]
+[ext_resource type="Script" uid="uid://b8n0xgatlgbnm" path="res://Scenes/Object Scenes/coffee_machine.gd" id="1_dxpo0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dxpo0"]
+radius = 3.0
+height = 6.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yibc7"]
+radius = 5.0
+height = 12.0
+
+[node name="CoffeeMachine" type="Node2D"]
+script = ExtResource("1_dxpo0")
+
+[node name="TheSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_7jo7w")
+hframes = 2
+vframes = 5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="OnOffButton" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnOffButton"]
+position = Vector2(4, 4)
+shape = SubResource("CapsuleShape2D_dxpo0")
+
+[node name="Pot" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pot"]
+position = Vector2(-4, 1)
+shape = SubResource("CapsuleShape2D_yibc7")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="input_event" from="OnOffButton" to="." method="_on_on_off_button_input_event"]
+[connection signal="input_event" from="Pot" to="." method="_on_pot_input_event"]

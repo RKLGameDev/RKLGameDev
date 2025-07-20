@@ -1,24 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://duw2bweodmil"]
+[gd_scene load_steps=5 format=3 uid="uid://duw2bweodmil"]
 
 [ext_resource type="Script" uid="uid://cb1w4yfsvulbq" path="res://Scripts/Location Scripts/MorningBedroom.gd" id="1_yf86m"]
-[ext_resource type="Texture2D" uid="uid://dh5qeemsxf5fk" path="res://Assets/Character/WakingLifeRoomFlat-Sheet.png" id="2_c7vx1"]
-[ext_resource type="PackedScene" uid="uid://ci8tq41h0yu8i" path="res://Scenes/Player Scenes/AwakePlayer.tscn" id="3_8wlw1"]
+[ext_resource type="Texture2D" uid="uid://pq0rl34y4fqs" path="res://Assets/Background/BedRoom-Sheet.png" id="2_c7vx1"]
+[ext_resource type="PackedScene" uid="uid://cxboijjkk1bb2" path="res://Scenes/Location Scenes/CommonBedroomAssets.tscn" id="3_yf86m"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8saeu"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a8k8j"]
 radius = 17.8564
 height = 73.5692
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j46i1"]
-size = Vector2(720, 90)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjex3"]
-size = Vector2(712, 90)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f13af"]
-size = Vector2(138, 616)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8met"]
-size = Vector2(264.5, 110.25)
 
 [node name="MorningBedroom" type="Control"]
 layout_mode = 3
@@ -28,59 +16,28 @@ offset_right = 0.299988
 offset_bottom = -0.100037
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_yf86m")
 
-[node name="TheRoom" type="Area2D" parent="."]
+[node name="TheRoom" type="Node2D" parent="."]
 
 [node name="RoomSprite" type="Sprite2D" parent="TheRoom"]
 texture_filter = 1
-position = Vector2(256, 264)
+position = Vector2(512, 264)
 scale = Vector2(4, 4)
 texture = ExtResource("2_c7vx1")
-vframes = 6
-frame = 3
-
-[node name="Camera2D" type="Camera2D" parent="TheRoom"]
-position = Vector2(256, 264)
-zoom = Vector2(1.4, 1.4)
-
-[node name="AwakePlayer" parent="TheRoom" instance=ExtResource("3_8wlw1")]
-position = Vector2(392, 352)
+hframes = 6
+frame = 1
 
 [node name="BedMM" type="Area2D" parent="TheRoom"]
-position = Vector2(-240, 400)
+position = Vector2(312, 472)
 
 [node name="Footofbed" type="CollisionShape2D" parent="TheRoom/BedMM"]
-position = Vector2(544, 80)
 rotation = 1.0472
-shape = SubResource("CapsuleShape2D_8saeu")
+shape = SubResource("CapsuleShape2D_a8k8j")
+metadata/_edit_lock_ = true
 
-[node name="RoomBounds" type="StaticBody2D" parent="TheRoom"]
-position = Vector2(256, 264)
-
-[node name="FloorBox" type="CollisionShape2D" parent="TheRoom/RoomBounds"]
-z_index = 1
-position = Vector2(0, 264)
-shape = SubResource("RectangleShape2D_j46i1")
-
-[node name="CeilBox" type="CollisionShape2D" parent="TheRoom/RoomBounds"]
-z_index = 1
-position = Vector2(4, -264)
-shape = SubResource("RectangleShape2D_qjex3")
-
-[node name="LeftWallBox" type="CollisionShape2D" parent="TheRoom/RoomBounds"]
-z_index = 1
-position = Vector2(-288, 0)
-shape = SubResource("RectangleShape2D_f13af")
-
-[node name="RightWallBox" type="CollisionShape2D" parent="TheRoom/RoomBounds"]
-z_index = 1
-position = Vector2(288, -4)
-shape = SubResource("RectangleShape2D_f13af")
-
-[node name="BedBox" type="CollisionShape2D" parent="TheRoom/RoomBounds"]
-position = Vector2(-83.75, 175.125)
-shape = SubResource("RectangleShape2D_c8met")
+[node name="CommonBedroomAssets" parent="TheRoom" instance=ExtResource("3_yf86m")]
 
 [connection signal="body_entered" from="TheRoom/BedMM" to="." method="_on_bed_mm_body_entered"]
 [connection signal="body_exited" from="TheRoom/BedMM" to="." method="_on_bed_mm_body_exited"]

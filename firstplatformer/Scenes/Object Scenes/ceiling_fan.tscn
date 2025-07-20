@@ -1,0 +1,146 @@
+[gd_scene load_steps=21 format=3 uid="uid://bxy36qig104rx"]
+
+[ext_resource type="Texture2D" uid="uid://bjo22pjnybf7c" path="res://Assets/Foreground/CeilingFanjustthefan-Sheet.png" id="1_wwrnt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dcb4"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa2yp"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mys7"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mi8o"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggw4u"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1pa8"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voxhy"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chkoa"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnw5p"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1vp8"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clqay"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4xgy"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x1cy"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au087"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 416, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0itf"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 448, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8le2"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 480, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7eo5"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 512, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8puyn"]
+atlas = ExtResource("1_wwrnt")
+region = Rect2(0, 544, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ui3hu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dcb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa2yp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mys7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mi8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggw4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1pa8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voxhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chkoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnw5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1vp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clqay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4xgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x1cy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au087")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0itf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8le2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7eo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8puyn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="CeilingFan" type="Node2D"]
+
+[node name="CeilingFan" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 56)
+scale = Vector2(6.25, 4)
+sprite_frames = SubResource("SpriteFrames_ui3hu")
+autoplay = "default"
