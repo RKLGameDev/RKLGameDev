@@ -97,3 +97,6 @@ scale = Vector2(4, 4)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClosedDoor"]
 polygon = PackedVector2Array(0, -16, 4, -16, 12, -8, 12, 52, 8, 52, 0, 42)
+
+[connection signal="input_event" from="OpenDoor" to="." method="_on_open_door_input_event"]
+[connection signal="input_event" from="ClosedDoor" to="." method="_on_closed_door_input_event"]
