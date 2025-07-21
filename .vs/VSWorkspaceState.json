@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\firstplatformer",
+    "\\firstplatformer\\Scripts",
+    "\\firstplatformer\\Scripts\\Global Scripts"
   ],
+  "SelectedNode": "\\firstplatformer\\Scripts\\Global Scripts\\GlobalLevelTracker.gd",
   "PreviewInSolutionExplorer": false
 }
