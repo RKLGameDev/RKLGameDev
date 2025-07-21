@@ -81,10 +81,11 @@ var fall_damageable = 0
 #    A.4.2 ------- Others Variables ------- #
 var health        = 4
 var alive         = true
+
 var scale_tracker = 0.0
 var scale_factor  = 4.0/3.0
 var can_scale     = false
-var can_dblejump  = false
+var can_dblejump  = true
 var damaged       = false
 var upgrade_damage= false
 

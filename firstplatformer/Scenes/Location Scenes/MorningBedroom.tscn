@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://duw2bweodmil"]
+[gd_scene load_steps=6 format=3 uid="uid://duw2bweodmil"]
 
 [ext_resource type="Script" uid="uid://cb1w4yfsvulbq" path="res://Scripts/Location Scripts/MorningBedroom.gd" id="1_yf86m"]
 [ext_resource type="Texture2D" uid="uid://pq0rl34y4fqs" path="res://Assets/Background/BedRoom-Sheet.png" id="2_c7vx1"]
 [ext_resource type="PackedScene" uid="uid://cxboijjkk1bb2" path="res://Scenes/Location Scenes/CommonBedroomAssets.tscn" id="3_yf86m"]
+[ext_resource type="Texture2D" uid="uid://d838cxi8tu4w" path="res://Assets/Background/BedRoom-Lighting.png" id="4_c7vx1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a8k8j"]
 radius = 17.8564
@@ -38,6 +39,13 @@ shape = SubResource("CapsuleShape2D_a8k8j")
 metadata/_edit_lock_ = true
 
 [node name="CommonBedroomAssets" parent="TheRoom" instance=ExtResource("3_yf86m")]
+
+[node name="BedRoom-lighting" type="Sprite2D" parent="TheRoom"]
+position = Vector2(536, 280)
+scale = Vector2(4, 4)
+texture = ExtResource("4_c7vx1")
+hframes = 6
+frame = 1
 
 [connection signal="body_entered" from="TheRoom/BedMM" to="." method="_on_bed_mm_body_entered"]
 [connection signal="body_exited" from="TheRoom/BedMM" to="." method="_on_bed_mm_body_exited"]

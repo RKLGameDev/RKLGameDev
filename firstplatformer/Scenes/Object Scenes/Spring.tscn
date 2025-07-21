@@ -4,17 +4,18 @@
 [ext_resource type="Script" uid="uid://bkwib3iiiu6qe" path="res://Scripts/Object Scripts/spring.gd" id="1_gst1t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gst1t"]
-size = Vector2(23, 30)
+size = Vector2(47, 63)
 
 [node name="Spring" type="Area2D"]
 texture_filter = 1
 script = ExtResource("1_gst1t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("1_5lbv2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 1)
+position = Vector2(-3.5, 3.5)
 shape = SubResource("RectangleShape2D_gst1t")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
