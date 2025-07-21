@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dr46ogswy4pc4"]
 
 [ext_resource type="Texture2D" uid="uid://b6xhfgyqmuvx2" path="res://Assets/Foreground/CoffeeMachine-Sheetpng.png" id="1_7jo7w"]
-[ext_resource type="Script" uid="uid://b8n0xgatlgbnm" path="res://Scenes/Object Scenes/coffee_machine.gd" id="1_dxpo0"]
+[ext_resource type="Script" uid="uid://b8n0xgatlgbnm" path="res://Scripts/Object Scripts/coffee_machine.gd" id="1_dxpo0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dxpo0"]
 radius = 3.0

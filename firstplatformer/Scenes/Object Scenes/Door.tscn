@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://ootngrmsws56"]
 
-[ext_resource type="Script" uid="uid://c6s8ej3swoqed" path="res://Scenes/Object Scenes/door.gd" id="1_a1kt6"]
+[ext_resource type="Script" uid="uid://c6s8ej3swoqed" path="res://Scripts/Object Scripts/door.gd" id="1_a1kt6"]
 [ext_resource type="Texture2D" uid="uid://dpecla602pu5w" path="res://Assets/Foreground/OpeningDoor-Sheet.png" id="1_yjhq0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1kt6"]

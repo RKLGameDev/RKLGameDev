@@ -1,10 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://dryk0elscaon2"]
+[gd_scene load_steps=16 format=3 uid="uid://dryk0elscaon2"]
 
-[ext_resource type="Texture2D" uid="uid://pq0rl34y4fqs" path="res://Assets/Background/BedRoom-Sheet.png" id="1_pcext"]
-[ext_resource type="PackedScene" uid="uid://ci8tq41h0yu8i" path="res://Scenes/Player Scenes/AwakePlayer.tscn" id="2_8vhk5"]
-[ext_resource type="PackedScene" uid="uid://bxy36qig104rx" path="res://Scenes/Object Scenes/ceiling_fan.tscn" id="3_bxfmi"]
-[ext_resource type="PackedScene" uid="uid://dr46ogswy4pc4" path="res://Scenes/Object Scenes/coffee_machine.tscn" id="4_ffdft"]
-[ext_resource type="PackedScene" uid="uid://ootngrmsws56" path="res://Scenes/Object Scenes/Door.tscn" id="5_xidg5"]
+[ext_resource type="Texture2D" uid="uid://52sww3b14nxb" path="res://Assets/Background/BedRoomBlank.png" id="1_pjf3q"]
+[ext_resource type="Script" uid="uid://b2en4mhp60hws" path="res://Scripts/Location Scripts/Bedroom.gd" id="1_ud2vv"]
+[ext_resource type="PackedScene" uid="uid://ci8tq41h0yu8i" path="res://Scenes/Player Scenes/AwakePlayer.tscn" id="2_ud2vv"]
+[ext_resource type="PackedScene" uid="uid://bxy36qig104rx" path="res://Scenes/Object Scenes/ceiling_fan.tscn" id="3_evaup"]
+[ext_resource type="PackedScene" uid="uid://dr46ogswy4pc4" path="res://Scenes/Object Scenes/coffee_machine.tscn" id="4_f22jc"]
+[ext_resource type="PackedScene" uid="uid://ootngrmsws56" path="res://Scenes/Object Scenes/Door.tscn" id="5_obeq0"]
+[ext_resource type="Texture2D" uid="uid://d838cxi8tu4w" path="res://Assets/Background/BedRoom-Lighting.png" id="6_b4edn"]
+[ext_resource type="Texture2D" uid="uid://c887ayaaw1wsx" path="res://Assets/Background/BedRoom-Lighting-Sheet.png" id="7_1ivyl"]
+[ext_resource type="Texture2D" uid="uid://cqxxs83kbll35" path="res://Assets/Character/TiredChar.png" id="9_evaup"]
+[ext_resource type="Texture2D" uid="uid://blbqbsgf1iu2y" path="res://Assets/Character/SleepingChar.png" id="10_f22jc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ey24l"]
 radius = 17.8564
@@ -23,16 +28,47 @@ size = Vector2(138, 616)
 size = Vector2(264.5, 110.25)
 
 [node name="Bedroom" type="Node2D"]
+script = ExtResource("1_ud2vv")
 
 [node name="TheRoom" type="Node2D" parent="."]
 
 [node name="RoomSprite" type="Sprite2D" parent="TheRoom"]
+z_index = 2
 texture_filter = 1
 position = Vector2(512, 264)
 scale = Vector2(4, 4)
-texture = ExtResource("1_pcext")
-hframes = 6
+texture = ExtResource("1_pjf3q")
+
+[node name="OutsideSprite" type="Sprite2D" parent="TheRoom"]
+texture_filter = 1
+position = Vector2(512, 264)
+scale = Vector2(4, 4)
+texture = ExtResource("7_1ivyl")
+hframes = 3
 frame = 2
+
+[node name="LightingSprite" type="Sprite2D" parent="TheRoom"]
+z_index = 12
+texture_filter = 1
+position = Vector2(512, 264)
+scale = Vector2(4, 4)
+texture = ExtResource("6_b4edn")
+hframes = 6
+frame = 3
+
+[node name="TiredChar" type="Sprite2D" parent="TheRoom"]
+z_index = 10
+texture_filter = 1
+position = Vector2(292, 338)
+scale = Vector2(4, 4)
+texture = ExtResource("9_evaup")
+
+[node name="SleepingChar" type="Sprite2D" parent="TheRoom"]
+z_index = 10
+texture_filter = 1
+position = Vector2(198, 368)
+scale = Vector2(4, 4)
+texture = ExtResource("10_f22jc")
 
 [node name="BedMM" type="Area2D" parent="TheRoom"]
 position = Vector2(312, 472)
@@ -71,30 +107,25 @@ shape = SubResource("RectangleShape2D_ytr17")
 position = Vector2(-83.75, 175.125)
 shape = SubResource("RectangleShape2D_pclx1")
 
-[node name="AwakePlayer" parent="TheRoom/CommonBedroomAssets" instance=ExtResource("2_8vhk5")]
+[node name="AwakePlayer" parent="TheRoom/CommonBedroomAssets" instance=ExtResource("2_ud2vv")]
+z_index = 10
 position = Vector2(432, 344)
 
 [node name="Camera2D" type="Camera2D" parent="TheRoom/CommonBedroomAssets"]
 position = Vector2(504, 296)
 zoom = Vector2(1.4, 1.4)
 
-[node name="CeilingFan" parent="TheRoom/CommonBedroomAssets" instance=ExtResource("3_bxfmi")]
+[node name="CeilingFan" parent="TheRoom/CommonBedroomAssets" instance=ExtResource("3_evaup")]
+z_index = 3
 position = Vector2(512, 48)
 
-[node name="RoomSprite" type="Sprite2D" parent="TheRoom/CommonBedroomAssets"]
-z_index = -9
-texture_filter = 1
-position = Vector2(512, 264)
-scale = Vector2(4, 4)
-texture = ExtResource("1_pcext")
-hframes = 6
-frame = 5
-
-[node name="CoffeeMachine" parent="TheRoom/CommonBedroomAssets" instance=ExtResource("4_ffdft")]
+[node name="CoffeeMachine" parent="TheRoom/CommonBedroomAssets" instance=ExtResource("4_f22jc")]
+z_index = 3
 position = Vector2(712, 328)
 scale = Vector2(4, 4)
 
-[node name="Door" parent="TheRoom/CommonBedroomAssets" instance=ExtResource("5_xidg5")]
+[node name="Door" parent="TheRoom/CommonBedroomAssets" instance=ExtResource("5_obeq0")]
+z_index = 3
 position = Vector2(948, 284)
 
 [node name="Label" type="Label" parent="."]
