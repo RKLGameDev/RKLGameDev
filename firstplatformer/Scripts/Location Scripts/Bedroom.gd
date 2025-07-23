@@ -15,8 +15,7 @@ extends Node2D
 
 var playerinbed = false
 
-func _ready():
-	
+func state_update():
 	if MainRoomGlobal.time_of_day == times_of_day.sunset:
 		outsidesprite.frame = 0
 		if MainRoomGlobal.light_state == MainRoomGlobal.light_states.on:
@@ -31,7 +30,6 @@ func _ready():
 		if MainRoomGlobal.light_state == MainRoomGlobal.light_states.off:
 			lightingsprite.frame = 3
 			
-			
 	if MainRoomGlobal.time_of_day == times_of_day.night or MainRoomGlobal.time_of_day == times_of_day.latenight:
 		outsidesprite.frame = 2
 		if MainRoomGlobal.light_state == MainRoomGlobal.light_states.on:
@@ -39,9 +37,19 @@ func _ready():
 		if MainRoomGlobal.light_state == MainRoomGlobal.light_states.off:
 			lightingsprite.frame = 5
 			
+	MainRoomGlobal.global_property_change = false
 			
-		
-		
+
+func _ready():
+	
+	if MainRoomGlobal.startup == true:
+		MainRoomGlobal.time_of_day = MainRoomGlobal.times_of_day.night
+		MainRoomGlobal.light_state = MainRoomGlobal.light_states.on
+		MainRoomGlobal.fan_state   = MainRoomGlobal.fan_states.on
+		MainRoomGlobal.startup = false
+
+	state_update()
+	
 	if MainRoomGlobal.time_of_day == times_of_day.latenight:
 		player.hide()
 		sleepingsprite.hide()
@@ -65,6 +73,8 @@ func _ready():
 
 
 func _physics_process(_delta):
+	if MainRoomGlobal.global_property_change:
+		state_update()
 	if playerinbed and Input.is_action_just_pressed("jump"):
 		player.visible = false
 		sleepingsprite.show()

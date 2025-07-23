@@ -7,6 +7,7 @@
 size = Vector2(13.875, 24)
 
 [node name="FanLightSwitch" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_mqo8v")
 
 [node name="LightSwitch" type="Area2D" parent="."]
@@ -16,7 +17,7 @@ texture_filter = 1
 position = Vector2(-6, 0)
 texture = ExtResource("2_mqo8v")
 hframes = 6
-frame = 4
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightSwitch"]
 position = Vector2(-7.875, 0)

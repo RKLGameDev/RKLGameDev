@@ -87,8 +87,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e80uo"]
-radius = 12.0
-height = 68.0
+radius = 8.0
+height = 60.0
 
 [node name="AwakePlayer" type="CharacterBody2D"]
 process_mode = 3
@@ -113,7 +113,7 @@ animation = &"WalkRight"
 [node name="MainCollision" type="CollisionShape2D" parent="."]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(0, 115)
+position = Vector2(0, 120)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_e80uo")
 one_way_collision_margin = 2.0

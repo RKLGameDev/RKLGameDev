@@ -513,7 +513,7 @@ position = Vector2(256, 264)
 
 [node name="FloorBox" type="CollisionShape2D" parent="TheRoom/CommonBedroomAssets/RoomBounds"]
 z_index = 1
-position = Vector2(222, 266)
+position = Vector2(212, 264)
 shape = SubResource("RectangleShape2D_6lbyn")
 
 [node name="CeilBox" type="CollisionShape2D" parent="TheRoom/CommonBedroomAssets/RoomBounds"]
@@ -550,7 +550,6 @@ position = Vector2(512, 48)
 [node name="CeilingFan" type="AnimatedSprite2D" parent="TheRoom/CommonBedroomAssets/CeilingFan"]
 texture_filter = 1
 position = Vector2(0, 56)
-scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_ui3hu")
 animation = &"Speed0"
 autoplay = "Speed5"
@@ -566,7 +565,7 @@ position = Vector2(948, 284)
 
 [node name="FanLightSwitch" parent="TheRoom/CommonBedroomAssets" instance=ExtResource("11_obeq0")]
 z_index = 2
-position = Vector2(760, 254)
+position = Vector2(757, 276)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 48.0
