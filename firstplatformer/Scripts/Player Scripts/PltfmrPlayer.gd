@@ -79,7 +79,7 @@ var fall_damageable = 0
 #    A.4.1 ------- Others Constants ------- #
 
 #    A.4.2 ------- Others Variables ------- #
-var health        = 1
+var health        = 4
 var alive         = true
 
 var scale_tracker = 0.0

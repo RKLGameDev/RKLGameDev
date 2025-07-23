@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var lssprite = $LightSwitch/LSSprite
-@onready var fssprite = $FanSwitch/FSSprite
+@onready var lssprite = $Switches/LightSwitch/LSSprite
+@onready var fssprite = $Switches/FanSwitch/FSSprite
 
 var lssframes = {"on":1, "off":4}
 var fssframes = {"on":2, "off":5}

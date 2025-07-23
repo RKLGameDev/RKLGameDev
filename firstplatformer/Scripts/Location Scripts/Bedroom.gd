@@ -8,7 +8,7 @@ extends Node2D
 @onready var trdcharsprite  = $TheRoom/TiredChar
 @onready var sleepingsprite = $TheRoom/SleepingChar
 @onready var player         = $TheRoom/CommonBedroomAssets/AwakePlayer
-@onready var ceilingfan     = $TheRoom/CommonBedroomAssets/CeilingFan/CeilingFan
+@onready var ceilingfan     = $TheRoom/CommonBedroomAssets/FanLightSwitch/CeilingFan/CeilingFan
 
 @onready var times_of_day = MainRoomGlobal.times_of_day
 @onready var light_states = MainRoomGlobal.light_states
@@ -51,6 +51,7 @@ func _ready():
 	state_update()
 	
 	if MainRoomGlobal.time_of_day == times_of_day.latenight:
+		state_update()
 		player.hide()
 		sleepingsprite.hide()
 		trdcharsprite.show()
@@ -58,9 +59,11 @@ func _ready():
 		trdcharsprite.hide()
 		player.show()
 	else:
+		state_update()
 		trdcharsprite.hide()
 	
 	if MainRoomGlobal.time_of_day == times_of_day.day:
+		state_update()
 		player.hide()
 		sleepingsprite.show()
 		trdcharsprite.hide()
@@ -68,6 +71,7 @@ func _ready():
 		sleepingsprite.hide()
 		player.show()
 	else:
+		state_update()
 		sleepingsprite.hide()
 
 
