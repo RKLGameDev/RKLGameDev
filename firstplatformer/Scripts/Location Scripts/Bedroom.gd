@@ -43,7 +43,7 @@ func state_update():
 func _ready():
 	
 	if MainRoomGlobal.startup == true:
-		MainRoomGlobal.time_of_day = MainRoomGlobal.times_of_day.night
+		MainRoomGlobal.time_of_day = MainRoomGlobal.times_of_day.sunset
 		MainRoomGlobal.light_state = MainRoomGlobal.light_states.on
 		MainRoomGlobal.fan_state   = MainRoomGlobal.fan_states.on
 		MainRoomGlobal.startup = false
