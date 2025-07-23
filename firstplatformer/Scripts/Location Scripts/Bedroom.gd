@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 #@onready var player_scene = preload("res://Scenes/AwakePlayer.tscn") 
 
@@ -8,44 +8,43 @@ extends Control
 @onready var trdcharsprite  = $TheRoom/TiredChar
 @onready var sleepingsprite = $TheRoom/SleepingChar
 @onready var player         = $TheRoom/CommonBedroomAssets/AwakePlayer
+@onready var ceilingfan     = $TheRoom/CommonBedroomAssets/CeilingFan/CeilingFan
 
 @onready var times_of_day = MainRoomGlobal.times_of_day
-@onready var time_of_day  = MainRoomGlobal.time_of_day
-
 @onready var light_states = MainRoomGlobal.light_states
-@onready var light_state  = MainRoomGlobal.light_state
 
 var playerinbed = false
 
 func _ready():
 	
-	if time_of_day == times_of_day.sunset:
+	if MainRoomGlobal.time_of_day == times_of_day.sunset:
 		outsidesprite.frame = 0
-		if light_state == light_states.on:
+		if MainRoomGlobal.light_state == MainRoomGlobal.light_states.on:
 			lightingsprite.frame = 0
-		if light_state == light_states.off:
+		if MainRoomGlobal.light_state == MainRoomGlobal.light_states.off:
 			lightingsprite.frame = 1
 			
-	if time_of_day == times_of_day.day:
+	if MainRoomGlobal.time_of_day == times_of_day.day:
 		outsidesprite.frame = 1
-		if light_state == light_states.on:
+		if MainRoomGlobal.light_state == MainRoomGlobal.light_states.on:
 			lightingsprite.frame = 2
-		if light_state == light_states.off:
+		if MainRoomGlobal.light_state == MainRoomGlobal.light_states.off:
 			lightingsprite.frame = 3
 			
-	if time_of_day == times_of_day.night:
+			
+	if MainRoomGlobal.time_of_day == times_of_day.night or MainRoomGlobal.time_of_day == times_of_day.latenight:
 		outsidesprite.frame = 2
-		if light_state == light_states.on:
+		if MainRoomGlobal.light_state == MainRoomGlobal.light_states.on:
 			lightingsprite.frame = 4
-		if light_state == light_states.off:
+		if MainRoomGlobal.light_state == MainRoomGlobal.light_states.off:
 			lightingsprite.frame = 5
-			trdcharsprite
 			
 			
 		
 		
-	if time_of_day == times_of_day.night:
+	if MainRoomGlobal.time_of_day == times_of_day.latenight:
 		player.hide()
+		sleepingsprite.hide()
 		trdcharsprite.show()
 		await get_tree().create_timer(2.0).timeout
 		trdcharsprite.hide()
@@ -53,9 +52,10 @@ func _ready():
 	else:
 		trdcharsprite.hide()
 	
-	if time_of_day == times_of_day.day:
+	if MainRoomGlobal.time_of_day == times_of_day.day:
 		player.hide()
 		sleepingsprite.show()
+		trdcharsprite.hide()
 		await get_tree().create_timer(2.0).timeout
 		sleepingsprite.hide()
 		player.show()
@@ -66,10 +66,14 @@ func _ready():
 
 func _physics_process(_delta):
 	if playerinbed and Input.is_action_just_pressed("jump"):
-		roomsprite.frame = 0
 		player.visible = false
+		sleepingsprite.show()
 		await get_tree().create_timer(3.0).timeout
 		GlobalLevelTracker.level_start()
+		
+		
+
+
 
 
 func _on_bed_mm_body_entered(body: Node2D) -> void:
